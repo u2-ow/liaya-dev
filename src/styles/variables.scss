@@ -1,0 +1,94 @@
+/* color */
+$darkPurple:#ab8388;
+$gray:#fbfbfa;
+$darkGray:#a9a9a9;
+$blue:#abeaf9;
+$blue02:#60aee8;
+$beige:#fff8ee;
+$black:#5a564d;
+$orange:#ff804d;
+$md_textColor:#4c4c4c;
+$thin_orange:#ffb294;
+
+
+/* breakpoint */
+$breakpoint: (
+  sp: 'screen and (max-width: 425px)',
+  tab: 'screen and (max-width: 768px)',
+  pc: 'screen and (max-width: 1024px)'
+);
+
+@mixin mq($bp) {
+  @media #{map-get($breakpoint, $bp)} {
+   @content;
+  }
+}
+
+
+@mixin common-width{
+    max-width: 1080px;
+    width: 100%;
+}
+@mixin common-artcleStyle{
+    .articleList {
+        @include common-width;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 316px));
+        grid-gap: 50px;
+        @include mq(tab) {
+          justify-content: space-between;
+        }
+        @include mq(sp) {
+          justify-content: center;
+        }
+        &__item {
+          max-width: 31.6rem;
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+          border-radius: 10px;
+          background-color: #fff;
+          position: relative;
+          transition: all 0.5s;
+          &:hover {
+            box-shadow: $blue02 0px 2px 8px 0px;
+          }
+        }
+        &__itemImage {
+          width: 100%;
+          border-radius: 10px 10px 0 0;
+        }
+        &__detail {
+          padding: 1em 1.6em 1.6em 1.6em;
+        }
+        &__detailEmoji {
+          font-size: 50px;
+          text-align: center;
+          padding: 0.8em 0 0.3em 0;
+          line-height: unset;
+          margin-bottom: unset;
+        }
+        &__detailTitle {
+          font-size: 1.6rem;
+          line-height: 1.6;
+          margin-bottom: unset;
+        }
+        &__detailDate {
+          margin-top: 1rem;
+          font-size: 1rem;
+          line-height: unset;
+          margin-bottom: unset;
+        }
+        &__detailTags {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          background-color: $blue;
+          color: #fff;
+          padding: 0.3rem 0.8rem;
+          border-radius: 10px;
+          font-size: unset;
+          margin-bottom: unset;
+        }
+      }
+}
+
