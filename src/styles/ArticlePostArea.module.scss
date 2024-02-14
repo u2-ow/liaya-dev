@@ -1,0 +1,17 @@
+@use "../styles/variables.scss" as v;
+
+.articlePostArea{
+    @include v.common-width();
+    margin: 0 auto;
+    .articlePosts{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 31.6rem));
+        gap: 5em;
+        .articlePostsItem{
+            border: solid;
+            .articlePostsItemTitle{
+                font-size: 1.8rem;
+            }
+        }
+    }
+}

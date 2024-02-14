@@ -1,4 +1,6 @@
+@use "../styles/variables.scss" as v;
 html{
     font-size: 62.5%;
     font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: v.$black;
 }

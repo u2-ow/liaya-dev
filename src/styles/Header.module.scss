@@ -13,6 +13,7 @@
     top: 0;
     padding: 0 1.6em;
     z-index: 1;
+    color: v.$black;
     .headerInner{
         @include v.common-width;
         margin: 0 auto;
@@ -20,6 +21,7 @@
         .headerInnerH1{
             font-size: 3rem;
             font-weight: 300;
+
             // color: v.$blue;
             // color: v.$darkGray;
         }
