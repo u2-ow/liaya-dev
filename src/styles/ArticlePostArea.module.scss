@@ -8,9 +8,22 @@
         grid-template-columns: repeat(auto-fit, minmax(10rem, 31.6rem));
         gap: 5em;
         .articlePostsItem{
-            border: solid;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            padding: 1.6em;
+            transition: 0.5s all;
+            &:hover{
+                box-shadow: rgba(137, 229, 213, 0.8) 0px 2px 8px 0px;
+            }
             .articlePostsItemTitle{
-                font-size: 1.8rem;
+                font-size: 1.6rem;
+                margin: 1em 0 .8rem 0;
+            }
+            .articlePostsItemThm{
+                width: 100%;
+            }
+            .articlePostsItemDate{
+                font-size: 1rem;
+                margin-bottom: 1.6em;
             }
         }
     }
