@@ -1,0 +1,12 @@
+@use "../styles/variables.scss" as v;
+.footer{
+    padding: 5em 0;
+    .footerInner{
+        @include v.common-width;
+        margin: 0 auto;
+        .footerInnerCopyright{
+            text-align: center;
+            font-size: 1.6rem;
+        }
+    }
+}
