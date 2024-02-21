@@ -18,12 +18,19 @@
         @include v.common-width;
         margin: 0 auto;
         padding: 1.6em 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         .headerInnerH1{
             font-size: 3rem;
             font-weight: 300;
 
             // color: v.$blue;
             // color: v.$darkGray;
+        }
+        .headerInnerMode{
+            width: fit-content;
+            padding: .2em;
         }
     }
 

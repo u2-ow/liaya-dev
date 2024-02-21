@@ -3,4 +3,29 @@ html{
     font-size: 62.5%;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     color: v.$black;
+    .postContainer{
+        max-width: 1080px;
+        width: 100%;
+        margin: 15em auto auto;
+        &__title{
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        &__publishedAt{
+            text-align: center;
+            margin-top: 1em;
+            font-size: 1rem;
+            margin-bottom: 2em;
+        }
+        &__h2{
+            font-size: 2.3rem;
+            font-weight: 300;
+            margin-bottom: 1em;
+        }
+        &__text{
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            line-height: 1.6;
+        }
+    }
 }
