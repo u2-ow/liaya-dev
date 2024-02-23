@@ -1,0 +1,90 @@
+---
+import Cube from "./Cube.astro";
+---
+
+<div class="mv">
+  <div class="mvInner">
+    <div class="mvInnerContent">
+      <p class="mvInnerContent__title">
+        Welcome to <span class="mvInnerContent__title-span">U2.dev</span> 🥳
+      </p>
+      <p class="mvInnerContent__text">
+        週に1投稿を目標で運営をしています。自分の興味の内容を投稿します。
+      </p>
+      <a href="/" class="mvInnerContent__link"
+        >about me <i class="fa-solid fa-angles-right mvInnerContent__link-arrow"
+        ></i></a
+      >
+    </div>
+
+    <Cube />
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/variables.scss" as v;
+  @keyframes arrowmove {
+    0% {
+      right: 10%;
+    }
+    50% {
+      right: 8%;
+    }
+    100% {
+      right: 10%;
+    }
+  }
+  .mv {
+    padding-top: 7em;
+  }
+  .mvInner {
+    @include v.common-width();
+    padding: 15em 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  .mvInnerContent {
+    &__title {
+      font-size: 6rem;
+      justify-content: space-between;
+      width: fit-content;
+      margin-bottom: 0.25em;
+      color: v.$black;
+    }
+    &__title-span {
+      background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    &__text {
+      font-size: 1.8rem;
+      color: v.$darkGray;
+    }
+    &__link {
+      color: v.$blue;
+      background-color: v.$blue03;
+      border-radius: 3px;
+      border: solid 1px v.$blue04;
+      font-size: 1.6rem;
+      padding: 0.4em 2em 0.4em 0.8em;
+      display: inline-block;
+      margin-top: 1em;
+      transition: 0.5s all;
+      position: relative;
+      &:hover {
+        background-color: #fff;
+      }
+    }
+    &__link-arrow {
+      font-size: 1.3rem;
+      position: absolute;
+      right: 10%;
+      top: 33%;
+      // transform: translate(0, -50%);
+      /*矢印の動き1秒かけて永遠にループ*/
+      animation: arrowmove 1.5s ease-in-out infinite;
+    }
+  }
+</style>
