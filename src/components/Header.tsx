@@ -9,6 +9,7 @@ export const Header=()=>{
                     <img src="../../assets/light.svg" alt="" width="20px" height="20" />
                 </div>
             </div>
+     
         </header>
     )
 }

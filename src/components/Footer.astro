@@ -1,0 +1,24 @@
+---
+
+---
+
+<footer>
+  <div class="footerInner">
+    <p class="footerInner__title">@u2.dev</p>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "../styles/variables.scss" as v;
+  footer {
+    .footerInner {
+      padding: 5em 0;
+      @include v.common-width();
+      margin: 0 auto;
+      &__title {
+        font-size: 1.6rem;
+        text-align: center;
+      }
+    }
+  }
+</style>
