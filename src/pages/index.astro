@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Header } from "../components/Header";
+import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import MV from "../components/Mv.astro";
 import { ArticlePostArea } from "../components/ArticlePostArea";
@@ -9,13 +9,12 @@ import { getBlogs } from "../lib/microcms";
 const blogs = await getBlogs({
   fields: ["title", "id", "content", "eyecatch", "description", "publishedAt"],
 });
-// console.log(blogs.contents[0]);
 ---
 
 <Layout title="Welcome to Astro.">
   <Header />
   <MV />
-  <ArticlePostArea blog={blogs} />
+  <ArticlePostArea blog={blogs}  />
   <Footer />
 </Layout>
 

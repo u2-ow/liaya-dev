@@ -1,0 +1,45 @@
+---
+import ThemeButton from "./ThemeButton.astro";
+---
+
+<header class="header">
+  <div class="headerInner">
+    <h1 class="headerInnerH1"><a href="/">u2.dev</a></h1>
+    <ThemeButton />
+  </div>
+</header>
+
+<style lang="scss">
+  @use "../styles/variables.scss" as v;
+  .header {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      rgba(27, 31, 35, 0.04) 0px 1px 0px,
+      rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+    position: fixed;
+    top: 0;
+    padding: 0 1.6em;
+    z-index: 1;
+    color: v.$black;
+    .headerInner {
+      @include v.common-width;
+      margin: 0 auto;
+      padding: 1.6em 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .headerInnerH1 {
+        font-size: 3rem;
+        font-weight: 300;
+      }
+      .headerInnerMode {
+        width: fit-content;
+        padding: 0.2em;
+      }
+    }
+  }
+</style>

@@ -7,7 +7,7 @@ export const ArticlePostArea =({blog})=>{
     return(
         <>
          <div className={Styles.articlePostArea}>
-         <SectionTitle text="記事一覧" />
+         <SectionTitle text="記事一覧" client:load />
          <ul className={Styles.articlePosts}>
          {blog.contents && Array.isArray(blog.contents) && blog.contents.map((item, index) => (
             <li key={index} className={Styles.articlePostsItem}>

@@ -1,0 +1,94 @@
+---
+import Styles from "../styles/ThemeButton.module.scss";
+---
+
+<div class="modeButton">
+  <input
+    type="checkbox"
+    name="lightMode"
+    value="lightMode"
+    aria-label="モードを切り替える"
+    aria-pressed="false"
+    class="modeButton__input"
+    id="themeButton"
+    data-state="true"
+  />
+  <label for="themeButton">
+    <img
+      src="../../assets/light.svg"
+      alt=""
+      width="20px"
+      height="20"
+      id="lightMode"
+      class="modeButton__icon modeButton__icon--active"
+    />
+    <img
+      src="../../assets/dark.svg"
+      alt=""
+      width="20px"
+      height="20"
+      id="darkMode"
+      class="modeButton__icon"
+    /></label
+  >
+</div>
+
+<!-- <button
+  class={Styles.toggleTheme}
+
+>
+
+  {mode ? <img src="../../assets/light.svg" alt="" width="20px" height="20" /> : <img src="../../assets/dark.svg" alt="" width="20px" height="20" />} -->
+
+<style lang="scss">
+  .modeButton {
+    &__input {
+      // opacity: 0;
+    }
+    &__icon {
+      display: none;
+      &--active {
+        display: block;
+      }
+    }
+  }
+</style>
+<script is:inline>
+  const osDark = matchMedia("(prefers-color-scheme: dark)");
+  const osDarkState = osDark.matches;
+  const inputButton = document.getElementById("themeButton");
+  const light = document.getElementById("lightMode");
+  const dark = document.getElementById("darkMode");
+
+  if (osDarkState) {
+    switch (osDarkState) {
+      case true:
+        light.classList.remove("modeButton__icon--active");
+        dark.classList.add("modeButton__icon--active");
+        inputButton.setAttribute("data-state", "false");
+        break;
+      case false:
+        light.classList.add("modeButton__icon--active");
+        dark.classList.remove("modeButton__icon--active");
+        inputButton.setAttribute("data-state", "true");
+        break;
+    }
+  }
+  inputButton.addEventListener("click", () => {
+    const inputButtonState = inputButton.getAttribute("data-state");
+    const darkState = dark.getAttribute("data-state");
+    if (inputButtonState) {
+      switch (inputButtonState) {
+        case "true":
+          dark.classList.add("modeButton__icon--active");
+          light.classList.remove("modeButton__icon--active");
+          inputButton.setAttribute("data-state", "false");
+          break;
+        case "false":
+          light.classList.add("modeButton__icon--active");
+          dark.classList.remove("modeButton__icon--active");
+          inputButton.setAttribute("data-state", "true");
+      }
+    }
+  });
+</script>
