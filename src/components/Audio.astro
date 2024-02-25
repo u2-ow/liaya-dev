@@ -1,0 +1,36 @@
+---
+
+---
+
+<button
+  class="audio"
+  role="button"
+  aria-label="音声を再生する"
+  aria-pressed="false">🗣️</button
+>
+
+<style lang="scss">
+  @use "../styles/variables.scss" as v;
+  .audio {
+    color: v.$blue;
+    background-color: v.$blue03;
+    border-radius: 3px;
+    border: solid 1px v.$blue04;
+    padding: 0 0.1em 0.2em 0.1em;
+    font-size: 2.3rem;
+    vertical-align: baseline;
+    margin-right: 1.6rem;
+    transition: 0.5s all;
+    &:hover {
+      background-color: #fff;
+    }
+  }
+</style>
+<script is:inline>
+  var sound = new Howl({
+    src: ["../assets/audio/audio.mp3"],
+  });
+  document
+    .querySelector("button")
+    .addEventListener("click", (e) => sound.play());
+</script>
