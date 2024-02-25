@@ -1,5 +1,6 @@
 ---
 import Cube from "./Cube.astro";
+import Audio from "./Audio.astro";
 ---
 
 <div class="mv">
@@ -9,8 +10,11 @@ import Cube from "./Cube.astro";
         Welcome to <span class="mvInnerContent__title-span">U2.dev</span> 🥳
       </p>
       <p class="mvInnerContent__text">
-        週に1投稿を目標で運営をしています。自分の興味の内容を投稿します。
+        週に1投稿を目標で運営をしています。<br
+          class="w1024-block w683-none"
+        />自分の興味のある内容を投稿します。
       </p>
+      <Audio />
       <a href="/" class="mvInnerContent__link"
         >about me <i class="fa-solid fa-angles-right mvInnerContent__link-arrow"
         ></i></a
@@ -39,10 +43,18 @@ import Cube from "./Cube.astro";
   }
   .mvInner {
     @include v.common-width();
-    padding: 15em 0;
+    padding: 15em 1.6em;
     margin: 0 auto;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    @include v.mq(w820) {
+      justify-content: space-between;
+    }
+    @include v.mq(w683) {
+      flex-direction: column-reverse;
+      padding: 5em 1.6em;
+    }
   }
   .mvInnerContent {
     &__title {
@@ -51,6 +63,21 @@ import Cube from "./Cube.astro";
       width: fit-content;
       margin-bottom: 0.25em;
       color: v.$black;
+      @include v.mq(w1024) {
+        font-size: min(5rem, 5vw);
+      }
+      @include v.mq(w820) {
+        font-size: 5rem;
+      }
+      @include v.mq(w683) {
+        font-size: min(5rem, 7vw);
+      }
+      @include v.mq(w428) {
+        font-size: min(3.8em, 9vw);
+      }
+      @include v.mq(w325) {
+        font-size: 2.9rem;
+      }
     }
     &__title-span {
       background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
@@ -61,6 +88,10 @@ import Cube from "./Cube.astro";
     &__text {
       font-size: 1.8rem;
       color: v.$darkGray;
+      @include v.mq(w428) {
+        font-size: 1.6rem;
+        line-height: 1.4;
+      }
     }
     &__link {
       color: v.$blue;
@@ -85,6 +116,17 @@ import Cube from "./Cube.astro";
       // transform: translate(0, -50%);
       /*矢印の動き1秒かけて永遠にループ*/
       animation: arrowmove 1.5s ease-in-out infinite;
+    }
+  }
+  :root[theme="dark"] {
+    .mvInnerContent {
+      &__title {
+        color: #fff;
+      }
+      &__text {
+        font-size: 1.8rem;
+        color: #fff;
+      }
     }
   }
 </style>

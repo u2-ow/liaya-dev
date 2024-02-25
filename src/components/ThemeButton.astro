@@ -44,6 +44,7 @@ import Styles from "../styles/ThemeButton.module.scss";
   .modeButton {
     &__input {
       // opacity: 0;
+      display: none;
     }
     &__icon {
       display: none;
@@ -83,11 +84,13 @@ import Styles from "../styles/ThemeButton.module.scss";
           dark.classList.add("modeButton__icon--active");
           light.classList.remove("modeButton__icon--active");
           inputButton.setAttribute("data-state", "false");
+          document.documentElement.setAttribute("theme", "dark");
           break;
         case "false":
           light.classList.add("modeButton__icon--active");
           dark.classList.remove("modeButton__icon--active");
           inputButton.setAttribute("data-state", "true");
+          document.documentElement.setAttribute("theme", "light");
       }
     }
   });

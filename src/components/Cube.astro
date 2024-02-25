@@ -10,7 +10,6 @@
 <style lang="scss">
   @use "../styles/variables.scss" as v;
   .cube {
-    margin: 50px;
     width: 100px;
     height: 100px;
     position: relative;
@@ -19,6 +18,12 @@
     transform-style: preserve-3d;
     animation: rotate-anim 5s linear infinite;
     margin-left: 200px;
+    @include v.mq(w820) {
+      margin-left: 0px;
+    }
+    @include v.mq(w683) {
+      margin-bottom: 6em;
+    }
     &__surface {
       width: 100%;
       height: 100%;

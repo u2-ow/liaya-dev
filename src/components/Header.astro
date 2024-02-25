@@ -4,8 +4,10 @@ import ThemeButton from "./ThemeButton.astro";
 
 <header class="header">
   <div class="headerInner">
-    <h1 class="headerInnerH1"><a href="/">u2.dev</a></h1>
-    <ThemeButton />
+    <h1 class="headerInner__h1"><a href="/">u2.dev</a></h1>
+    <nav class="headerInner__nav">
+      <ThemeButton />
+    </nav>
   </div>
 </header>
 
@@ -25,20 +27,31 @@ import ThemeButton from "./ThemeButton.astro";
     padding: 0 1.6em;
     z-index: 1;
     color: v.$black;
-    .headerInner {
-      @include v.common-width;
-      margin: 0 auto;
-      padding: 1.6em 0;
+  }
+  .headerInner {
+    @include v.common-width;
+    margin: 0 auto;
+    padding: 1.6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__h1 {
+      font-size: 3rem;
+      font-weight: 300;
+    }
+    &__nav {
       display: flex;
-      justify-content: space-between;
+      gap: 3em;
       align-items: center;
-      .headerInnerH1 {
-        font-size: 3rem;
-        font-weight: 300;
-      }
-      .headerInnerMode {
-        width: fit-content;
-        padding: 0.2em;
+    }
+  }
+  :root[theme="dark"] {
+    .header {
+      background: rgba(28, 28, 28, 0.5);
+    }
+    .headerInner {
+      &__h1 {
+        color: #fff;
       }
     }
   }
