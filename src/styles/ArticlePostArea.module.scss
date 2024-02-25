@@ -3,28 +3,49 @@
 .articlePostArea{
     @include v.common-width();
     margin: 0 auto;
+    padding: 0 1.6em;
     .articlePosts{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(10rem, 31.6rem));
         gap: 5em;
-        .articlePostsItem{
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-            padding: 1.6em;
-            transition: 0.5s all;
-            &:hover{
-                box-shadow: rgba(137, 229, 213, 0.8) 0px 2px 8px 0px;
-            }
-            .articlePostsItemTitle{
-                font-size: 1.6rem;
-                margin: 1em 0 .8rem 0;
-            }
-            .articlePostsItemThm{
-                width: 100%;
-            }
-            .articlePostsItemDate{
-                font-size: 1rem;
-                margin-bottom: 1.6em;
-            }
+        @include v.mq(w683) {
+            justify-content: center;
+        }
+    }
+    .articlePostsItem{
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: 1.6em;
+        transition: 0.5s all;
+        
+        .articlePostsItemTitle{
+            font-size: 1.6rem;
+            margin: 1em 0 .8rem 0;
+        }
+        .articlePostsItemThm{
+            width: 100%;
+        }
+        .articlePostsItemDate{
+            font-size: 1rem;
+            margin-bottom: 1.6em;
+        }
+    }
+}
+:root[theme="dark"]{
+    .articlePostsItem{
+        // transition: unset;
+        background: #fff;
+        color: #000;
+        // border: solid 1px v.$green;
+        outline-style: solid;
+        outline-color: v.$green;
+        outline-offset: 1px;
+        outline-width: 2px;
+        border-radius: 1em;
+        &:hover{
+            box-shadow: unset;
+            outline-color: #86f5ba;
+            // border: solid 2px #86f5ba;
+
         }
     }
 }

@@ -1,13 +1,16 @@
 @use "../styles/variables.scss" as v;
 
 :root {
-    --cBackground: #fedfe1;
-    --cText: #656765;
+    background-color: #fff;
+    color: v.$black;
   }
-  
+:root[theme="dark"]{
+    background-color: #1c1c1c;
+    color: #fff;  
+}
   @media (prefers-color-scheme:dark) {
     body {
-      background-color: #000;
+      background-color:#1c1c1c;
       color: #fff;
     }
   }
@@ -42,4 +45,22 @@ html{
             line-height: 1.6;
         }
     }
+}
+
+.w1024-block{
+  display: none;
+  @include v.mq(w1024){
+    display: block;
+  }
+}
+.w820-block{
+  display: none;
+  @include v.mq(w820){
+    display: block;
+  }
+}
+.w683-none{
+  @include v.mq(w683){
+    display: none;
+  }
 }

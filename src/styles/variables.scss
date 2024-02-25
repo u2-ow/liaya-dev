@@ -17,9 +17,12 @@ $green:#02adb0;
 
 /* breakpoint */
 $breakpoint: (
-  sp: 'screen and (max-width: 425px)',
-  tab: 'screen and (max-width: 768px)',
-  pc: 'screen and (max-width: 1024px)'
+  w325: 'screen and (max-width: 325px)',
+  w428: 'screen and (max-width: 428px)',
+  w683: 'screen and (max-width: 683px)',
+  w768:'screen and (max-width: 768px)',
+  w820: 'screen and (max-width: 820px)',
+  w1024: 'screen and (max-width: 1024px)'
 );
 
 @mixin mq($bp) {

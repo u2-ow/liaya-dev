@@ -5,3 +5,8 @@
     color: v.$black;
     margin-bottom: 1em;
 }
+:root[theme="dark"]{
+    .sectionTitle{
+        color: #fff;
+    }
+}
