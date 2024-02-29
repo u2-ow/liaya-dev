@@ -32,25 +32,14 @@ import Styles from "../styles/ThemeButton.module.scss";
     /></label
   >
 </div>
-
-<!-- <button
-  class={Styles.toggleTheme}
-
->
-
-  {mode ? <img src="../../assets/light.svg" alt="" width="20px" height="20" /> : <img src="../../assets/dark.svg" alt="" width="20px" height="20" />} -->
-
 <style lang="scss">
-  .modeButton {
-    &__input {
-      // opacity: 0;
-      display: none;
-    }
-    &__icon {
-      display: none;
-      &--active {
-        display: block;
-      }
+  .modeButton__input {
+    display: none;
+  }
+  .modeButton__icon {
+    display: none;
+    &--active {
+      display: block;
     }
   }
 </style>
@@ -64,33 +53,61 @@ import Styles from "../styles/ThemeButton.module.scss";
   if (osDarkState) {
     switch (osDarkState) {
       case true:
-        light.classList.remove("modeButton__icon--active");
-        dark.classList.add("modeButton__icon--active");
-        inputButton.setAttribute("data-state", "false");
+        light?.classList.remove("modeButton__icon--active");
+        dark?.classList.add("modeButton__icon--active");
+        inputButton?.setAttribute("data-state", "false");
+        window.localStorage.setItem("mode", "dark");
         break;
       case false:
-        light.classList.add("modeButton__icon--active");
-        dark.classList.remove("modeButton__icon--active");
-        inputButton.setAttribute("data-state", "true");
+        light?.classList.add("modeButton__icon--active");
+        dark?.classList.remove("modeButton__icon--active");
+        inputButton?.setAttribute("data-state", "true");
+        window.localStorage.setItem("mode", "light");
         break;
     }
   }
-  inputButton.addEventListener("click", () => {
+  if (localStorage.getItem("mode") === "dark") {
+    document.documentElement.classList.add("dark-mode");
+    document.documentElement.classList.remove("light-mode");
+    dark?.classList.add("modeButton__icon--active");
+    light?.classList.remove("modeButton__icon--active");
+  } else if (localStorage.getItem("mode") === "light") {
+    document.documentElement.classList.add("light-mode");
+    document.documentElement.classList.remove("dark-mode");
+    dark?.classList.remove("modeButton__icon--active");
+    light?.classList.add("modeButton__icon--active");
+  }
+  inputButton?.addEventListener("click", () => {
     const inputButtonState = inputButton.getAttribute("data-state");
-    const darkState = dark.getAttribute("data-state");
+    const darkState = dark?.getAttribute("data-state");
     if (inputButtonState) {
       switch (inputButtonState) {
         case "true":
-          dark.classList.add("modeButton__icon--active");
-          light.classList.remove("modeButton__icon--active");
+          dark?.classList.add("modeButton__icon--active");
+          light?.classList.remove("modeButton__icon--active");
           inputButton.setAttribute("data-state", "false");
-          document.documentElement.setAttribute("theme", "dark");
+          // document.documentElement.setAttribute("theme", "dark");
+          window.localStorage.setItem("mode", "dark");
+          if (localStorage.getItem("mode") === "dark") {
+            document.documentElement.classList.add("dark-mode");
+            document.documentElement.classList.remove("light-mode");
+          } else if (localStorage.getItem("mode") === "light") {
+            document.documentElement.classList.add("light-mode");
+            document.documentElement.classList.remove("dark-mode");
+          }
           break;
         case "false":
-          light.classList.add("modeButton__icon--active");
-          dark.classList.remove("modeButton__icon--active");
+          light?.classList.add("modeButton__icon--active");
+          dark?.classList.remove("modeButton__icon--active");
           inputButton.setAttribute("data-state", "true");
-          document.documentElement.setAttribute("theme", "light");
+          window.localStorage.setItem("mode", "light");
+          if (localStorage.getItem("mode") === "dark") {
+            document.documentElement.classList.add("dark-mode");
+            document.documentElement.classList.remove("light-mode");
+          } else if (localStorage.getItem("mode") === "light") {
+            document.documentElement.classList.add("light-mode");
+            document.documentElement.classList.remove("dark-mode");
+          }
       }
     }
   });

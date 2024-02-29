@@ -1,0 +1,208 @@
+---
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="My first blog with Astro">
+  <div class="layer" id="layer"></div>
+  <Header />
+  <main class="about">
+    <div class="about__profile-icon"></div>
+    <button class="about__view-json" id="jsonView_btn">View Profile</button>
+    <div class="about__json" id="json">
+      <p class="about__json-title">Profile</p>
+      <button class="material-symbols-outlined about__json-icon" id="closeJson"
+        >close</button
+      >
+      <div class="about__json-inner">
+        <p><span>&#123</span></p>
+        <p class="about__json-text">
+          <span>"gender"</span><span>:</span><span class="about__json-value"
+            >"male"</span
+          >,
+        </p>
+        <p class="about__json-text">
+          <span>"occupation"</span><span>:</span><span class="about__json-value"
+            >"engineer"</span
+          >,
+        </p>
+        <p class="about__json-text"><span>"skills" : [</span></p>
+        <p class="about__json-text about__json-text--2em">
+          <span class="about__json-value">"Html"</span>,
+        </p>
+        <p class="about__json-text about__json-text--2em">
+          <span class="about__json-value">"Scss"</span>,
+        </p>
+        <p class="about__json-text about__json-text--2em">
+          <span class="about__json-value">"Javascript"</span>,
+        </p>
+        <p class="about__json-text about__json-text--2em">
+          <span class="about__json-value">"React"</span>,
+        </p>
+        <p class="about__json-text about__json-text--2em">
+          <span class="about__json-value">"Next.js"</span>,
+        </p>
+        <p class="about__json-text about__json-text--2em">
+          <span class="about__json-value">"Astro"</span>
+        </p>
+        <p class="about__json-text"><span>],</span></p>
+        <p class="about__json-text">
+          <span>"hobbies" : [</span>
+        </p>
+        <p class="about__json-text about__json-text--2em">
+          <span class="about__json-value">"game"</span>,
+        </p>
+        <p class="about__json-text about__json-text--2em">
+          <span class="about__json-value">"anime"</span>,
+        </p>
+        <p class="about__json-text about__json-text--2em">
+          <span class="about__json-value">"stroll"</span>
+        </p>
+        <p class="about__json-text">
+          <span>]</span>
+        </p>
+        <p><span>&#125</span></p>
+      </div>
+    </div>
+    <h2 class="about__h2">このサイトについて</h2>
+    <p class="about__text">
+      このサイトは、"Astro" + "React" + "microCMS" +
+      "Vercle"によって作成されています。<br
+      />週に1記事の投稿を目安にフロントエンド系の記事を投稿していきます。
+    </p>
+    <h2 class="about__h2">経歴</h2>
+    <p class="about__text">
+      2020年に東京都内にてアルバイトとして入社をし、1年後正社員となりフロントエンドとして3年ほど働きました。<br
+      />2024年に2社目となる東京都内の企業に転職しました。
+    </p>
+    <h2 class="about__h2">趣味</h2>
+    <p class="about__text">
+      ゲームとアニメと散歩です。<br
+      />ゲームは、最近ではVALORANTやPhasmophobiaを友人とプレイしています。<br
+      />アニメは、「葬送のフリーレン」にハマっています。<small
+        >(2024年3月現在)</small
+      >
+      <br
+      />散歩は、フルリモートワークということもあり、運動を全くしないので休日は公園や1駅分歩いたりしています。
+    </p>
+  </main>
+  <Footer />
+</Layout>
+
+<style lang="scss">
+  @use "../../styles/variables.scss" as v;
+  .layer {
+    display: none;
+  }
+  .layer-active {
+    display: block;
+    position: absolute;
+    height: 100svh;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+  }
+  .about {
+    margin: 15em auto auto;
+    @include v.common-width();
+    padding: 0 1.6em;
+
+    &__profile-icon {
+      border: solid 1px #e4e4e7;
+      width: 100px;
+      height: 100px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+    &__view-json {
+      color: v.$black;
+      background-color: #fafafa;
+      border-radius: 3px;
+      border: solid 1px #e4e4e7;
+      padding: 0.4em 1em;
+      font-size: 1.6rem;
+      width: fit-content;
+      vertical-align: baseline;
+      transition: 0.5s all;
+      display: block;
+      margin: 1.6em auto auto auto;
+      &:hover {
+        background-color: #f4f4f5;
+      }
+    }
+    &__json {
+      background: #fff;
+      padding: 3em 1.6em;
+      width: fit-content;
+      border-radius: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transition: none;
+      opacity: 0;
+      pointer-events: none;
+      &--active {
+        opacity: 1;
+        pointer-events: auto;
+        transition: all 0.5s;
+      }
+    }
+
+    &__json-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    &__json-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.8em;
+    }
+    &__json-inner {
+      background-color: #fafafa;
+      width: 300px;
+      font-size: 1.4rem;
+      padding: 1.6rem;
+    }
+    &__json-text {
+      margin-left: 1em;
+      padding: 2px 0;
+      &--2em {
+        margin-left: 2em;
+      }
+    }
+    &__json-value {
+      color: #188038;
+    }
+    &__h2 {
+      font-size: 2.3rem;
+      margin-bottom: 1em;
+      margin-top: 3em;
+    }
+    &__text {
+      font-size: 1.6rem;
+      line-height: 1.6;
+    }
+  }
+</style>
+
+<script>
+  const jsonBtn = document.getElementById("jsonView_btn");
+  const json = document.getElementById("json");
+  const closeBtn = document.getElementById("closeJson");
+  const layer = document.getElementById("layer");
+  jsonBtn?.addEventListener("click", () => {
+    json?.classList.add("about__json--active");
+    layer?.classList.add("layer-active");
+    document.documentElement.style.overflow = "hidden";
+  });
+  closeBtn?.addEventListener("click", () => {
+    json?.classList.remove("about__json--active");
+    layer?.classList.remove("layer-active");
+    document.documentElement.style.overflow = "unset";
+  });
+</script>

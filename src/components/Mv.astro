@@ -4,19 +4,19 @@ import Audio from "./Audio.astro";
 ---
 
 <div class="mv">
-  <div class="mvInner">
-    <div class="mvInnerContent">
-      <p class="mvInnerContent__title">
-        Welcome to <span class="mvInnerContent__title-span">U2.dev</span> 🥳
+  <div class="mv-inner">
+    <div class="mv-inner__content">
+      <p class="mv-inner__title">
+        Welcome to <span class="mv-inner__title-span">U2.dev</span> 🥳
       </p>
-      <p class="mvInnerContent__text">
+      <p class="mv-inner__text">
         週に1投稿を目標で運営をしています。<br
           class="w1024-block w683-none"
         />自分の興味のある内容を投稿します。
       </p>
       <Audio />
-      <a href="/" class="mvInnerContent__link"
-        >about me <i class="fa-solid fa-angles-right mvInnerContent__link-arrow"
+      <a href="/about" class="mv-inner__link"
+        >about me <i class="fa-solid fa-angles-right mv-inner__link-arrow"
         ></i></a
       >
     </div>
@@ -41,7 +41,7 @@ import Audio from "./Audio.astro";
   .mv {
     padding-top: 7em;
   }
-  .mvInner {
+  .mv-inner {
     @include v.common-width();
     padding: 15em 1.6em;
     margin: 0 auto;
@@ -55,8 +55,6 @@ import Audio from "./Audio.astro";
       flex-direction: column-reverse;
       padding: 5em 1.6em;
     }
-  }
-  .mvInnerContent {
     &__title {
       font-size: 6rem;
       justify-content: space-between;
@@ -94,10 +92,10 @@ import Audio from "./Audio.astro";
       }
     }
     &__link {
-      color: v.$blue;
-      background-color: v.$blue03;
+      color: v.$black;
+      background-color: #fafafa;
       border-radius: 3px;
-      border: solid 1px v.$blue04;
+      border: solid 1px #e4e4e7;
       font-size: 1.6rem;
       padding: 0.4em 2em 0.4em 0.8em;
       display: inline-block;
@@ -113,13 +111,11 @@ import Audio from "./Audio.astro";
       position: absolute;
       right: 10%;
       top: 33%;
-      // transform: translate(0, -50%);
-      /*矢印の動き1秒かけて永遠にループ*/
       animation: arrowmove 1.5s ease-in-out infinite;
     }
   }
-  :root[theme="dark"] {
-    .mvInnerContent {
+  :root[class="dark-mode"] {
+    .mv-inner {
       &__title {
         color: #fff;
       }
