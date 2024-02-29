@@ -12,9 +12,9 @@ const blogs = await getBlogs({
 ---
 
 <Layout title="Welcome to Astro.">
-  <Header />
+  <Header client:load />
   <MV />
-  <ArticlePostArea blog={blogs}  />
+  <ArticlePostArea blog={blogs} client:only="react" />
   <Footer />
 </Layout>
 

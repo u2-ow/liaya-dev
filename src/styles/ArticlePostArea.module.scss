@@ -20,22 +20,20 @@
         .articlePostsItemTitle{
             font-size: 1.6rem;
             margin: 1em 0 .8rem 0;
+            line-height: 1.3;
         }
         .articlePostsItemThm{
             width: 100%;
         }
         .articlePostsItemDate{
             font-size: 1rem;
-            margin-bottom: 1.6em;
         }
     }
 }
 :root[theme="dark"]{
     .articlePostsItem{
-        // transition: unset;
         background: #fff;
         color: #000;
-        // border: solid 1px v.$green;
         outline-style: solid;
         outline-color: v.$green;
         outline-offset: 1px;
@@ -44,8 +42,6 @@
         &:hover{
             box-shadow: unset;
             outline-color: #86f5ba;
-            // border: solid 2px #86f5ba;
-
         }
     }
 }

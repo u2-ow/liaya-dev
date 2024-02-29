@@ -1,50 +1,85 @@
 @use "../styles/variables.scss" as v;
 
-:root {
-    background-color: #fff;
-    color: v.$black;
-  }
-:root[theme="dark"]{
-    background-color: #1c1c1c;
-    color: #fff;  
-}
+// :root {
+//     background-color: #fff;
+//     color: v.$black;
+//   }
+// :root[theme="dark"]{
+//     background-color: #1c1c1c;
+//     color: #fff;  
+// }
   @media (prefers-color-scheme:dark) {
     body {
       background-color:#1c1c1c;
       color: #fff;
     }
   }
-  
+  :root[class="dark-mode"]{
+    background-color:#1c1c1c;
+    color: #fff;
+    .about__json {
+      background-color: #241f1f;
+      color: #fff;
+    }
+    .about__json-inner{
+      background-color: #000;
+    }
+  }
+  :root[class="light-mode"]{
+      background-color: #fff;
+      color: v.$black;
+  }
+
 
 html{
     font-size: 62.5%;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     color: v.$black;
-    .postContainer{
+    font-weight: 300;
+    transition: 0.5s all;
+    .post-container{
         max-width: 1080px;
         width: 100%;
         margin: 15em auto auto;
-        &__title{
-            text-align: center;
-            font-size: 2.5rem;
-        }
-        &__publishedAt{
-            text-align: center;
-            margin-top: 1em;
-            font-size: 1rem;
-            margin-bottom: 2em;
-        }
-        &__h2{
-            font-size: 2.3rem;
-            font-weight: 300;
-            margin-bottom: 1em;
-        }
-        &__text{
-            font-size: 1.6rem;
-            letter-spacing: 1px;
-            line-height: 1.6;
-        }
+        padding: 0 1.6em;
     }
+    .post-container__title{
+      text-align: center;
+      font-size: 2.5rem;
+      word-break: auto-phrase;
+    }
+    .post-container__publishedAt{
+      text-align: center;
+      margin-top: 1em;
+      font-size: 1rem;
+      margin-bottom: 2em;
+    }
+    .post-container__h2{
+      font-size: 2.3rem;
+      font-weight: 300;
+      margin-bottom: 1em;
+      margin-top: 3em;
+    }
+    .post-container__text{
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      line-height: 1.8;
+      margin-bottom: 1em;
+    }
+    .post-container__link{
+      text-decoration: underline;
+      text-decoration-color: #86f5ba;
+      &:hover{
+        color: #86f5ba;
+      }
+    }
+    .post-container__image{
+      border-radius: 10px;
+      max-width: 450px;
+      width: 100%;
+      height: auto;
+    }
+
 }
 
 .w1024-block{

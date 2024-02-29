@@ -6,7 +6,7 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<html lang="jp">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -41,6 +41,11 @@ const { title } = Astro.props;
       crossorigin="anonymous"
       referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="../../src/styles/global.scss" />
+    <!-- material icon -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
