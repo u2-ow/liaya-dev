@@ -1,21 +1,14 @@
 @use "../styles/variables.scss" as v;
 
-// :root {
-//     background-color: #fff;
-//     color: v.$black;
-//   }
-// :root[theme="dark"]{
-//     background-color: #1c1c1c;
-//     color: #fff;  
-// }
+
   @media (prefers-color-scheme:dark) {
     body {
-      background-color:#1c1c1c;
+      background-color:#09090b;
       color: #fff;
     }
   }
   :root[class="dark-mode"]{
-    background-color:#1c1c1c;
+    background-color:#09090b;
     color: #fff;
     .about__json {
       background-color: #241f1f;
@@ -29,6 +22,16 @@
       background-color: #fff;
       color: v.$black;
   }
+  :root {
+    &.light-mode {
+      background-color: #fff;
+      color: v.$black;
+    }
+    // &.active {
+    //   background-color: rgba(0, 0, 0, 0.6);
+    //   overflow: hidden;
+    // }
+  }
 
 
 html{
@@ -37,6 +40,16 @@ html{
     color: v.$black;
     font-weight: 300;
     transition: 0.5s all;
+
+    @include v.mq(w428){
+      line-height: 1.6;
+    }
+    // body{
+    //   height: 100%;
+    // }
+    // .active{
+    //   
+    // }
     .post-container{
         max-width: 1080px;
         width: 100%;
@@ -81,6 +94,8 @@ html{
     }
 
 }
+
+
 
 .w1024-block{
   display: none;
