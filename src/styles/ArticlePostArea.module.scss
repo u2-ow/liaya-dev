@@ -32,13 +32,14 @@
 }
 :root[class="dark-mode"]{
     .articlePostsItem{
-        background: #fff;
         color: #000;
-        outline-style: solid;
-        outline-color: v.$green;
-        outline-offset: 1px;
-        outline-width: 2px;
+        // outline-style: solid;
+        // outline-color: ;
+        // outline-offset: 1px;
+        // outline-width: 2px;
+        border: solid 3px #27272a;
         border-radius: 1em;
+        color: #fff;
         &:hover{
             box-shadow: unset;
             outline-color: #86f5ba;
