@@ -1,0 +1,146 @@
+<div class="modal-wrap" id="modal_wrap">
+  <div class="modal">
+    <p class="modal__title">Profile</p>
+    <button class="material-symbols-outlined modal__icon" id="closeJson"
+      >close</button
+    >
+    <div class="modal__inner">
+      <p><span>&#123</span></p>
+      <p class="modal__text">
+        <span>"gender"</span><span>:</span><span class="modal__value"
+          >"male"</span
+        >,
+      </p>
+      <p class="modal__text">
+        <span>"occupation"</span><span>:</span><span class="modal__value"
+          >"front-end-engineer"</span
+        >,
+      </p>
+      <p class="modal__text"><span>"skills" : [</span></p>
+      <p class="modal__text modal__text--2em">
+        <span class="modal__value">"Html"</span>,
+      </p>
+      <p class="modal__text modal__text--2em">
+        <span class="modal__value">"Scss"</span>,
+      </p>
+      <p class="modal__text modal__text--2em">
+        <span class="modal__value">"Javascript"</span>,
+      </p>
+      <p class="modal__text modal__text--2em">
+        <span class="modal__value">"React"</span>,
+      </p>
+      <p class="modal__text modal__text--2em">
+        <span class="modal__value">"Next.js"</span>,
+      </p>
+      <p class="modal__text modal__text--2em">
+        <span class="modal__value">"Astro"</span>
+      </p>
+      <p class="modal__text"><span>],</span></p>
+      <p class="modal__text">
+        <span>"hobbies" : [</span>
+      </p>
+      <p class="modal__text modal__text--2em">
+        <span class="modal__value">"game"</span>,
+      </p>
+      <p class="modal__text modal__text--2em">
+        <span class="modal__value">"anime"</span>,
+      </p>
+      <p class="modal__text modal__text--2em">
+        <span class="modal__value">"stroll"</span>
+      </p>
+      <p class="modal__text">
+        <span>]</span>
+      </p>
+      <p><span>&#125</span></p>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/variables.scss" as v;
+  .modal-wrap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    // z-index: 10000;
+    transition: 0.5s;
+    // display: none;
+    opacity: 0;
+    z-index: -1;
+    &--active {
+      opacity: 1;
+      z-index: 10000;
+    }
+  }
+  .modal {
+    background: #fff;
+    padding: 4em 1.6em;
+    width: fit-content;
+    border-radius: 10px;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    padding: 4em 1.6em;
+    &__title {
+      font-size: 1.6rem;
+      margin-bottom: 0.8em;
+    }
+    &__inner {
+      background-color: #fafafa;
+      width: 300px;
+      font-size: 1.4rem;
+      padding: 1.6rem;
+    }
+    &__icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    &__text {
+      margin-left: 1em;
+      padding: 2px 0;
+      &--2em {
+        margin-left: 2em;
+      }
+    }
+    &__value {
+      color: #188038;
+    }
+  }
+  :root[class="dark-mode"] {
+    .modal {
+      &__title {
+        color: #000;
+      }
+      &__text {
+        color: #000;
+      }
+      &__icon {
+        color: #000;
+      }
+    }
+  }
+</style>
+
+<script>
+  const jsonBtn = document.getElementById("jsonView_btn");
+  const json = document.getElementById("modal_wrap");
+  const closeBtn = document.getElementById("closeJson");
+  const layer = document.getElementById("layer");
+  jsonBtn?.addEventListener("click", () => {
+    json?.classList.add("modal-wrap--active");
+    // document.documentElement.classList.add("active");
+    document.documentElement.style.overflow = "hidden";
+    console.log("hello");
+  });
+  closeBtn?.addEventListener("click", () => {
+    json?.classList.remove("modal-wrap--active");
+    document.documentElement.style.overflow = "initial";
+  });
+</script>
