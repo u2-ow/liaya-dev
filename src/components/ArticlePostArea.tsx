@@ -14,7 +14,6 @@ export const ArticlePostArea =({blog})=>{
                     <img src={item.eyecatch?.url} alt="" className={Styles.articlePostsItemThm} />
                     <p className={Styles.articlePostsItemTitle}>{item.title}</p>
                     <p className={Styles.articlePostsItemDate}>{dayjs(item.publishedAt).format('YYYY/MM/DD')}</p>
-                
                 </a>
             </li>
         ))}

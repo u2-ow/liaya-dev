@@ -28,8 +28,8 @@
       width: 100%;
       height: 100%;
       position: absolute;
-      background: rgba(62, 207, 142, 0.1);
-      border: solid 1px #3ecf8e;
+      border: solid 2px #292590;
+
       &:nth-child(1) {
         transform: translateZ(50px);
       }
@@ -47,6 +47,14 @@
       }
       &:nth-child(6) {
         transform: rotateX(-90deg) translateZ(50px);
+      }
+    }
+  }
+  :root[class="dark-mode"] {
+    .cube {
+      &__surface {
+        border: solid 2px #292590;
+        box-shadow: 0 0 6px 2px #292590;
       }
     }
   }

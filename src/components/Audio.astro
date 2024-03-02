@@ -6,7 +6,7 @@
   class="audio"
   role="button"
   aria-label="音声を再生する"
-  aria-pressed="false">🗣️</button
+  aria-pressed="false">▷</button
 >
 
 <style lang="scss">
@@ -16,13 +16,21 @@
     border-radius: 3px;
     border: solid 1px #e4e4e7;
     border-radius: 3px;
-    padding: 0 0.1em 0.2em 0.1em;
-    font-size: 2.3rem;
-    vertical-align: baseline;
+    padding: 0.2em;
+    font-size: 2rem;
+    vertical-align: bottom;
     margin-right: 1.6rem;
+    margin-top: 1em;
     transition: 0.5s all;
     &:hover {
       background-color: #fff;
+    }
+  }
+  :root[class="dark-mode"] {
+    .audio {
+      color: #fff;
+      background: #0f0f11;
+      border: solid 2px #27272a;
     }
   }
 </style>

@@ -14,23 +14,13 @@ import Styles from "../styles/ThemeButton.module.scss";
     data-state="true"
   />
   <label for="themeButton">
-    <img
-      src="../../assets/light.svg"
-      alt=""
-      width="20px"
-      height="20"
-      id="lightMode"
-      class="modeButton__icon modeButton__icon--active"
-    />
-    <img
-      src="../../assets/dark.svg"
-      alt=""
-      width="20px"
-      height="20"
-      id="darkMode"
-      class="modeButton__icon"
-    /></label
-  >
+    <span class="material-symbols-outlined modeButton__icon" id="lightMode">
+      light_mode
+    </span>
+    <span class="material-symbols-outlined modeButton__icon" id="darkMode">
+      dark_mode
+    </span>
+  </label>
 </div>
 <style lang="scss">
   .modeButton__input {
@@ -40,6 +30,11 @@ import Styles from "../styles/ThemeButton.module.scss";
     display: none;
     &--active {
       display: block;
+    }
+  }
+  :root[class="dark-mode"] {
+    .modeButton__icon {
+      color: #fff;
     }
   }
 </style>

@@ -14,21 +14,26 @@ const res = await fetch(
 );
 const data = await res.json();
 const zennPosts: Post[] = Array.from(data.articles);
-const zennPath = "https://zenn.dev/"
+const zennPath = "https://zenn.dev/";
 
 console.log("helo");
 console.log(zennPosts[0]);
 ---
+
 <div class="zennPosts">
-    <ul>
-        {zennPosts.map((item,index)=>{
-             <li>
-                <a href={`${zennPath} + ${item.path}`}>
-                    <img src={item.} alt=""/>
-                    <p>{item.title}</p>
-                    <p>{dayjs(item.published_at).format('YYYY/MM/DD')}</p>
-                </a>
-            </li>
-        })}
-    </ul>
+  <ul>
+    {
+      zennPosts.map((item, index) => {
+        return (
+          <li>
+            <a href={`${zennPath} + ${item.path}`}>
+              <p>{item.emoji}</p>
+              <p>{item.title}</p>
+              <p>{dayjs(item.published_at).format("YYYY/MM/DD")}</p>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
 </div>

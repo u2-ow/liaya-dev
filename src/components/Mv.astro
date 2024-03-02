@@ -71,14 +71,14 @@ import Audio from "./Audio.astro";
         font-size: min(5rem, 7vw);
       }
       @include v.mq(w428) {
-        font-size: min(3.8em, 9vw);
+        font-size: min(3.8em, 8vw);
       }
       @include v.mq(w325) {
         font-size: 2.9rem;
       }
     }
     &__title-span {
-      background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+      background-image: linear-gradient(120deg, #292590 0%, #98ddfd 100%);
       color: transparent;
       -webkit-background-clip: text;
       background-clip: text;
@@ -122,6 +122,11 @@ import Audio from "./Audio.astro";
       &__text {
         font-size: 1.8rem;
         color: #fff;
+      }
+      &__link {
+        color: #fff;
+        background: #0f0f11;
+        border: solid 2px #27272a;
       }
     }
   }
