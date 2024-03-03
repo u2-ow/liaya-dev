@@ -1,0 +1,68 @@
+---
+import "@pagefind/default-ui/css/ui.css";
+---
+
+<!-- <div class="search"></div> -->
+<div class="serach-overlay">
+  <div class="serach-overlay__wrap">
+    <button
+      class="material-symbols-outlined serach-overlay__icon"
+      id="closeSearch">close</button
+    >
+    <div class="search serach-overlay__search"></div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/variables.scss" as v;
+  .search {
+    @include v.searchStyle();
+    position: absolute;
+  }
+  .serach-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    &__wrap {
+      max-width: 500px;
+      background-color: #fff;
+      min-height: 20em;
+      position: relative;
+      padding: 3em 1.6em 1.6em 1.6em;
+      border-radius: 10px;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+    }
+    &__search {
+      width: 100%;
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      padding: 1.6em;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+    }
+    &__icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  }
+</style>
+<script>
+  import { PagefindUI } from "@pagefind/default-ui";
+  new PagefindUI({
+    element: ".search",
+    translations: {
+      placeholder: "記事を検索",
+    },
+  });
+  const closeBtn = document.getElementById("closeSearch");
+</script>
