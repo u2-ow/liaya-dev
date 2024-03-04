@@ -63,7 +63,6 @@ const zennPath = "https://zenn.dev";
     }
     &__thm {
       height: 150px;
-      background-color: red;
     }
     &__emoji {
       font-size: 5rem;
@@ -78,6 +77,16 @@ const zennPath = "https://zenn.dev";
       font-size: 1.6rem;
       margin: 1em 0 0.8rem 0;
       line-height: 1.3;
+    }
+  }
+  :root[class="dark-mode"] {
+    .zennPosts {
+      &__item {
+        color: #000;
+        border: solid 3px #27272a;
+        border-radius: 1em;
+        color: #fff;
+      }
     }
   }
 </style>
