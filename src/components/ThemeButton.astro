@@ -23,18 +23,27 @@ import Styles from "../styles/ThemeButton.module.scss";
   </label>
 </div>
 <style lang="scss">
-  .modeButton__input {
-    display: none;
-  }
-  .modeButton__icon {
-    display: none;
-    &--active {
-      display: block;
+  @use "../styles/variables.scss" as v;
+  .modeButton {
+    @include v.iconBtnStyle();
+    padding-bottom: 0.45em;
+    &__input {
+      display: none;
+    }
+    &__icon {
+      display: none;
+      font-size: 2rem;
+      &--active {
+        display: block;
+      }
     }
   }
   :root[class="dark-mode"] {
-    .modeButton__icon {
-      color: #fff;
+    .modeButton {
+      border: solid 2px #27272a;
+      &__icon {
+        color: #fff;
+      }
     }
   }
 </style>

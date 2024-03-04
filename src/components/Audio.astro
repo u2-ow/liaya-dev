@@ -4,6 +4,7 @@
 
 <button
   class="audio"
+  id="play"
   role="button"
   aria-label="音声を再生する"
   aria-pressed="false">▷</button
@@ -22,6 +23,9 @@
     margin-right: 1.6rem;
     margin-top: 1em;
     transition: 0.5s all;
+    @include v.mq(w683) {
+      padding: 0.15em 0.5em;
+    }
     &:hover {
       background-color: #fff;
     }
@@ -35,10 +39,12 @@
   }
 </style>
 <script is:inline>
+  const playBtn = document.getElementById("play");
   var sound = new Howl({
     src: ["../assets/audio/audio.mp3"],
   });
-  document
-    .querySelector("button")
-    .addEventListener("click", () => sound.play());
+  playBtn?.addEventListener("click", () => {
+    console.log("hello");
+    sound.play();
+  });
 </script>

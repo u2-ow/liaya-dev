@@ -46,6 +46,9 @@ import ThemeButton from "./ThemeButton.astro";
       display: flex;
       gap: 3em;
       align-items: center;
+      @include v.mq(w428) {
+        gap: 2em;
+      }
     }
   }
 
