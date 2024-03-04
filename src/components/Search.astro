@@ -14,7 +14,7 @@ import "@pagefind/default-ui/css/ui.css";
   <span class="material-symbols-outlined sp-search__icon">search</span>
 </div>
 <div class="search-overlay" id="search_overlay">
-  <div class="search-overlay__wrap">
+  <div class="search-overlay__container">
     <button
       class="material-symbols-outlined search-overlay__close"
       id="closeSearch">close</button
@@ -39,6 +39,7 @@ import "@pagefind/default-ui/css/ui.css";
       width: 100%;
       height: 100%;
       border-radius: 5px;
+      outline: none;
     }
     &__icon {
       color: #393939;
@@ -74,7 +75,7 @@ import "@pagefind/default-ui/css/ui.css";
       opacity: 1;
       visibility: visible;
     }
-    &__wrap {
+    &__container {
       max-width: 500px;
       background-color: #fff;
       min-height: 20em;
@@ -124,6 +125,12 @@ import "@pagefind/default-ui/css/ui.css";
       border: solid 2px #27272a;
       &__icon {
         color: #fff;
+      }
+    }
+    .search-overlay {
+      &__container {
+        background-color: #09090b;
+        border: solid 3px #27272a;
       }
     }
   }
