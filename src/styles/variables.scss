@@ -109,6 +109,13 @@ $breakpoint: (
   --pagefind-ui-image-box-ratio: 3 / 2;
   --pagefind-ui-font: sans-serif;
 }
+@mixin iconBtnStyle{
+  display: block;
+  border: solid 1px #eeeeee;
+  padding: 0.5em 0.5em 0 0.5em;
+  border-radius: 5px;
+
+}
 
 
 
