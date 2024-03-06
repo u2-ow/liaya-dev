@@ -119,11 +119,19 @@ $breakpoint: (
   margin-bottom: 10em;
     &__list{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
         gap: 5em;
         @include mq(w683) {
             justify-content: center;
             grid-template-columns: repeat(auto-fit, minmax(10rem, 31.6rem));
+        }
+        &--second{
+          display: flex;
+          @include mq(w683) {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 31.6rem));
+        }
         }
     }
     &__item{
