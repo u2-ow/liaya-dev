@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import { Pagination } from "../../../components/Pagination";
+import { getBlogs } from "../../../lib/microcms";
+import type { GetStaticPathsOptions } from "astro";
+import dayjs from "dayjs";
+
+export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
+  const blogs = await getBlogs();
+  return paginate(blogs.contents, { pageSize: 3 });
+};
+
+const { page } = Astro.props;
+---
+
+<Layout title="Welcome to Astro.">
+  <Header />
+  <main class="blogs">
+    <div class="article-posts">
+      <ul class="article-posts__list" id="post_list">
+        {
+          page.data.map((post) => {
+            return (
+              <li class="article-posts__item">
+                <a href={post.id}>
+                  <img
+                    src={post.eyecatch.url}
+                    alt="記事のサムネイル"
+                    class="article-posts__thm"
+                  />
+                  <p class="article-posts__title">{post.title}</p>
+                  <p class="article-posts__published">
+                    {dayjs(post.publishedAt).format("YYYY/MM/DD")}
+                  </p>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <Pagination client:only="react" data={page} />
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style lang="scss">
+  @use "../../../styles/variables.scss" as v;
+  .blogs {
+    padding-top: 15em;
+  }
+  .article-posts {
+    @include v.article-list();
+  }
+</style>
+
+<script>
+  const postList = document.getElementById("post_list");
+  console.log(postList?.children.length);
+  if (postList?.children.length === 2) {
+    postList.classList.add("article-posts__list--second");
+  }
+</script>
