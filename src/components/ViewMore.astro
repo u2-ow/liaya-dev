@@ -1,0 +1,35 @@
+---
+
+---
+
+<button class="view-more" id="more"
+  >View more <span class="view-more__arrow">→</span></button
+>
+
+<style lang="scss">
+  .view-more {
+    color: #4861c6;
+    font-size: 1.6rem;
+    margin-top: 2em;
+    margin-left: auto;
+    display: block;
+    transition: all 0.5s;
+    &__arrow {
+      vertical-align: middle;
+      display: inline-block;
+      transform: translateX(-5px);
+      transition: all 0.3s ease;
+      margin-left: 0.5em;
+    }
+    &:hover {
+      .view-more__arrow {
+        transform: translateX(0);
+      }
+    }
+  }
+  :root[class="dark-mode"] {
+    .view-more {
+      color: #03a9f4;
+    }
+  }
+</style>
