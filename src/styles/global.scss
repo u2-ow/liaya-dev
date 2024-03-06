@@ -44,6 +44,9 @@ html{
       @include v.common-width();
       margin: 0 auto;
     }
+    .paginationActive{
+      color: #4861c6;
+  }
     .pagefind-ui__drawer{
       position: absolute;
     }

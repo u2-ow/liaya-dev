@@ -13,9 +13,13 @@
         text-align: center;
         line-height: 33px;
         color: #e4e4e7;
+        transition: all .5s;
         a{
             display: block;
         }
+        &:hover{
+            color: #4861c6;
+        }        
     }
 
 }
