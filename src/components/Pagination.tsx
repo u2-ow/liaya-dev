@@ -1,11 +1,9 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import Styles from "../styles/Pagination.module.scss"
 
 
 
 export const Pagination =({data}:any)=>{
-    const [count,setCount] = useState(1)
-    const liRef = useRef(null);
     const ulRef = useRef(null);
     const post = Number(data.lastPage);
     const paginationArray:number[] = []
@@ -13,25 +11,18 @@ export const Pagination =({data}:any)=>{
         paginationArray.push(i)
     }
     useEffect(() => {
-        const paginationNumber = liRef.current;
-        const paginationUl = ulRef.current
-        if (paginationUl) {
-            const liElements = (paginationUl.current as HTMLElement).querySelectorAll('li');
-        }
-
         const pathSegments = window.location.pathname.split('/');
         const lastSegment = Number(pathSegments[pathSegments.length - 1]);
-        console.log("最後")
-        console.log(paginationUl)
-        console.log(lastSegment)
-
+        const anchorElements = (ulRef.current as HTMLElement | null)?.querySelectorAll('a');
+        const currentNumber = anchorElements? anchorElements[lastSegment -1 ] : undefined
+        currentNumber?.classList.add("paginationActive")
     }, [location]);
     return(
         <>
             <ul className={Styles.pagination} ref={ulRef}>
                 {
                     paginationArray.map((item, index) => {
-                        return <li key={index} className={Styles.paginationItem} ref={liRef} onClick={()=>setCount(item)}><a href={"/blogs/page/" + `${item}`} >{item}</a></li>;
+                        return <li key={index} className={Styles.paginationItem} ><a href={"/blogs/page/" + `${item}`} >{item}</a></li>;
                     })
                 }
             </ul>
