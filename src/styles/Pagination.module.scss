@@ -1,0 +1,30 @@
+@use "../styles/variables.scss" as v;
+.pagination{
+    display: flex;
+    gap: 1.6em;
+    margin-top: 3em;
+    justify-content: center;
+    .paginationItem{
+        font-size: 1.6rem;
+        border: solid 1px #e4e4e7;
+        width: 35px;
+        height: 35px;
+        border-radius: 50% ;
+        text-align: center;
+        line-height: 33px;
+        color: #e4e4e7;
+        a{
+            display: block;
+        }
+    }
+
+}
+
+:root[class="dark-mode"]{
+    .pagination{
+        .paginationItem{
+            line-height: 29px;
+            border: solid 3px #27272a;
+        }
+    } 
+}
