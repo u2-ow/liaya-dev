@@ -40,6 +40,10 @@ html{
     @include v.mq(w428){
       line-height: 1.6;
     }
+    main{
+      @include v.common-width();
+      margin: 0 auto;
+    }
     .pagefind-ui__drawer{
       position: absolute;
     }

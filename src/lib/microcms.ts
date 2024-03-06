@@ -17,6 +17,9 @@ export type Blog = {
   revisedAt: string;
   title: string;
   content: string;
+  eyecatch: {
+    url: string;
+  };
 };
 export type BlogResponse = {
   totalCount: number;

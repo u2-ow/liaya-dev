@@ -1,6 +1,6 @@
 ---
 import dayjs from "dayjs";
-import { SectionTitle } from "./SectionTitle";
+import SectionTitle from "./SectionTitle.astro";
 
 interface Post {
   id: number;
@@ -18,19 +18,19 @@ const zennPosts: Post[] = Array.from(data.articles);
 const zennPath = "https://zenn.dev";
 ---
 
-<div class="zennPosts">
-  <SectionTitle text="作ったもの" />
-  <ul class="zennPosts__list">
+<div class="article-posts">
+  <SectionTitle title="develop" />
+  <ul class="article-posts__list">
     {
-      zennPosts.map((item, index) => {
+      zennPosts.map((item) => {
         return (
-          <li class="zennPosts__item">
-            <a href={`${zennPath}${item.path}`} class="zennPosts__link">
-              <div class="zennPosts__thm">
-                <p class="zennPosts__emoji">{item.emoji}</p>
+          <li class="article-posts__item">
+            <a href={`${zennPath}${item.path}`}>
+              <div class="article-posts__thm article-posts__thm--zenn">
+                <p class="article-posts__emoji">{item.emoji}</p>
               </div>
-              <p class="zennPosts__title">{item.title}</p>
-              <p class="zennPosts__published">
+              <p class="article-posts__title">{item.title}</p>
+              <p class="article-posts__published">
                 {dayjs(item.published_at).format("YYYY/MM/DD")}
               </p>
             </a>
@@ -43,50 +43,7 @@ const zennPath = "https://zenn.dev";
 
 <style lang="scss">
   @use "../styles/variables.scss" as v;
-  .zennPosts {
-    @include v.common-width();
-    margin: 10em auto auto auto;
-    padding: 1.6rem;
-    &__list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(10rem, 31.6rem));
-      gap: 5em;
-      @include v.mq(w683) {
-        justify-content: center;
-      }
-    }
-    &__item {
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-      padding: 1.6em;
-      transition: 0.5s all;
-      padding: 1.6em;
-    }
-    &__thm {
-      height: 150px;
-    }
-    &__emoji {
-      font-size: 5rem;
-      text-align: center;
-      height: 150px;
-      background-color: #fafafa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    &__title {
-      font-size: 1.6rem;
-      margin: 1em 0 0.8rem 0;
-      line-height: 1.3;
-    }
-  }
-  :root[class="dark-mode"] {
-    .zennPosts {
-      &__item {
-        color: #000;
-        border: solid 3px #27272a;
-        border-radius: 1em;
-        color: #fff;
-      }
-    }
+  .article-posts {
+    @include v.article-list();
   }
 </style>
