@@ -1,0 +1,45 @@
+---
+import dayjs from "dayjs";
+import { getBlogs } from "../lib/microcms";
+import SectionTitle from "./SectionTitle.astro";
+import ViewMore from "./ViewMore.astro";
+
+const blogs = await getBlogs({
+  fields: ["title", "id", "content", "eyecatch", "description", "publishedAt"],
+  limit: 3,
+});
+const posts = blogs.contents;
+---
+
+<div class="article-posts">
+  <SectionTitle title="articles" />
+  <ul class="article-posts__list">
+    {
+      posts.map((post) => {
+        return (
+          <li class="article-posts__item">
+            <a href={post.id}>
+              <img
+                src={post.eyecatch.url}
+                alt="記事のサムネイル"
+                class="article-posts__thm"
+              />
+              <p class="article-posts__title">{post.title}</p>
+              <p class="article-posts__published">
+                {dayjs(post.publishedAt).format("YYYY/MM/DD")}
+              </p>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+  <ViewMore />
+</div>
+
+<style lang="scss">
+  @use "../styles/variables.scss" as v;
+  .article-posts {
+    @include v.article-list();
+  }
+</style>
