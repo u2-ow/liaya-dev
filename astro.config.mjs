@@ -4,7 +4,11 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/dist",
+  base: "/u2-dev",
+  outDir: "./dist/Logos1-3",
+  css: {
+    preprocessor: "sass",
+  },
   integrations: [
     react({
       experimentalReactChildren: true,
