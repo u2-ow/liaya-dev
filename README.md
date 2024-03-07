@@ -2,3 +2,6 @@
 ①npm i
 <br>
 ②npm run dev
+
+# 注意
+node 18以上
