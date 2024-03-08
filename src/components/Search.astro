@@ -10,7 +10,7 @@ import "@pagefind/default-ui/css/ui.css";
     placeholder="記事を検索..."
   />
 </form>
-<div class="sp-search">
+<div class="sp-search" id="sp_search">
   <span class="material-symbols-outlined sp-search__icon">search</span>
 </div>
 <div class="search-overlay" id="search_overlay">
@@ -56,6 +56,7 @@ import "@pagefind/default-ui/css/ui.css";
     display: none;
     @include v.mq(w428) {
       @include v.iconBtnStyle();
+      padding: 0.3em 0.4em 0;
       &__icon {
         font-size: 2rem;
       }
@@ -88,6 +89,9 @@ import "@pagefind/default-ui/css/ui.css";
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       overflow: auto;
+      @include v.mq(w428) {
+        max-width: 320px;
+      }
     }
     &__close {
       position: absolute;
@@ -158,10 +162,16 @@ import "@pagefind/default-ui/css/ui.css";
     debounceTimeoutMs: 400,
   });
   const search = document.getElementById("search");
+  const spSearch = document.getElementById("sp_search");
   const closeSearchBtn = document.getElementById("closeSearch");
   const searchOverlay = document.getElementById("search_overlay");
-
+  console.log(spSearch);
   search?.addEventListener("click", () => {
+    console.log("hello");
+    searchOverlay?.classList.add("search-overlay--active");
+  });
+  spSearch?.addEventListener("click", () => {
+    console.log("hello");
     searchOverlay?.classList.add("search-overlay--active");
   });
   closeSearchBtn?.addEventListener("click", () => {
