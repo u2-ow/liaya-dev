@@ -40,6 +40,11 @@ html{
     @include v.mq(w428){
       line-height: 1.6;
     }
+    .body-lock{
+      position: fixed;
+    left: 0;
+    width: 100%;
+    }
     main{
       @include v.common-width();
       margin: 0 auto;
@@ -92,6 +97,7 @@ html{
       width: 100%;
       height: auto;
     }
+
 
 }
 

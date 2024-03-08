@@ -66,11 +66,13 @@
     left: 0;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100vw;
     background-color: rgba(0, 0, 0, 0.7);
     transition: 0.5s;
     opacity: 0;
     z-index: -1;
+    overflow: auto;
+    scrollbar-gutter: stable;
     &--active {
       opacity: 1;
       z-index: 10000;
@@ -135,12 +137,10 @@
   const closeBtn = document.getElementById("closeJson");
   jsonBtn?.addEventListener("click", () => {
     json?.classList.add("modal-wrap--active");
-    // document.documentElement.classList.add("active");
-    document.documentElement.style.overflow = "hidden";
-    console.log("hello");
+    // document.documentElement.style.overflow = "hidden";
   });
   closeBtn?.addEventListener("click", () => {
     json?.classList.remove("modal-wrap--active");
-    document.documentElement.style.overflow = "initial";
+    // document.documentElement.style.overflow = "initial";
   });
 </script>

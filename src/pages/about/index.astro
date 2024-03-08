@@ -11,9 +11,10 @@ import Layout from "../../layouts/Layout.astro";
   <Header />
 
   <main class="about">
-    <div class="about__prof-icon">
-      <span class="about__prof-span"></span>
+    <div class="about__prof">
+      <div class="about__prof-animation"></div>
     </div>
+
     <button class="about__view-json" id="jsonView_btn">View Profile</button>
     <Modal />
     <h2 class="about__h2">このサイトについて</h2>
@@ -57,7 +58,22 @@ import Layout from "../../layouts/Layout.astro";
     @include v.common-width();
     padding: 0 1.6em;
     margin: 15em auto auto;
-    &__prof-icon {
+    &__prof {
+      width: fit-content;
+      margin: 0 auto;
+      border-radius: 50%;
+      position: relative;
+      &::before {
+        content: "準備中...";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+      }
+    }
+    &__prof-animation {
       width: 100px;
       height: 100px;
       margin: 0 auto;

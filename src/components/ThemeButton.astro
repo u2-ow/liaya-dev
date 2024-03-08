@@ -10,12 +10,25 @@
     data-state="true"
   />
   <label for="themeButton">
-    <span class="material-symbols-outlined modeButton__icon" id="lightMode">
+    <!-- <span class="material-symbols-outlined modeButton__icon" id="lightMode">
       light_mode
-    </span>
-    <span class="material-symbols-outlined modeButton__icon" id="darkMode">
-      dark_mode
-    </span>
+    </span> -->
+    <img
+      src="../../public/assets/light.svg"
+      alt="ライトモードのアイコン"
+      class="modeButton__icon"
+      id="lightMode"
+      width="18"
+      height="18"
+    />
+    <img
+      src="../../public/assets/dark.svg"
+      alt="ダークモードのアイコン"
+      class="modeButton__icon"
+      id="darkMode"
+      width="18"
+      height="18"
+    />
   </label>
 </div>
 <style lang="scss">
@@ -43,7 +56,7 @@
     }
   }
 </style>
-<script is:inline>
+<script>
   const osDark = matchMedia("(prefers-color-scheme: dark)");
   const osDarkState = osDark.matches;
   const inputButton = document.getElementById("themeButton");
@@ -51,20 +64,15 @@
   const dark = document.getElementById("darkMode");
 
   if (osDarkState) {
-    switch (osDarkState) {
-      case true:
-        light?.classList.remove("modeButton__icon--active");
-        dark?.classList.add("modeButton__icon--active");
-        inputButton?.setAttribute("data-state", "false");
-        window.localStorage.setItem("mode", "dark");
-        break;
-      case false:
-        light?.classList.add("modeButton__icon--active");
-        dark?.classList.remove("modeButton__icon--active");
-        inputButton?.setAttribute("data-state", "true");
-        window.localStorage.setItem("mode", "light");
-        break;
-    }
+    light?.classList.remove("modeButton__icon--active");
+    dark?.classList.add("modeButton__icon--active");
+    inputButton?.setAttribute("data-state", "false");
+    window.localStorage.setItem("mode", "dark");
+  } else {
+    light?.classList.add("modeButton__icon--active");
+    dark?.classList.remove("modeButton__icon--active");
+    inputButton?.setAttribute("data-state", "true");
+    window.localStorage.setItem("mode", "light");
   }
   if (localStorage.getItem("mode") === "dark") {
     document.documentElement.classList.add("dark-mode");

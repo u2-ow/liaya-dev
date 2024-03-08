@@ -41,10 +41,9 @@
 <script is:inline>
   const playBtn = document.getElementById("play");
   var sound = new Howl({
-    src: ["/dist/assets/audio/audio.mp3"],
+    src: ["/assets/audio/audio.mp3"],
   });
   playBtn?.addEventListener("click", () => {
-    console.log("hello");
     sound.play();
   });
 </script>
