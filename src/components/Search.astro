@@ -165,16 +165,18 @@ import "@pagefind/default-ui/css/ui.css";
   const spSearch = document.getElementById("sp_search");
   const closeSearchBtn = document.getElementById("closeSearch");
   const searchOverlay = document.getElementById("search_overlay");
-  console.log(spSearch);
+
   search?.addEventListener("click", () => {
-    console.log("hello");
     searchOverlay?.classList.add("search-overlay--active");
   });
   spSearch?.addEventListener("click", () => {
-    console.log("hello");
     searchOverlay?.classList.add("search-overlay--active");
   });
   closeSearchBtn?.addEventListener("click", () => {
+    searchOverlay?.classList.remove("search-overlay--active");
+  });
+  searchOverlay?.addEventListener("click", () => {
+    console.log("helo");
     searchOverlay?.classList.remove("search-overlay--active");
   });
 </script>
