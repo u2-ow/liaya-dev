@@ -13,14 +13,13 @@ import "@pagefind/default-ui/css/ui.css";
 <div class="sp-search" id="sp_search">
   <span class="material-symbols-outlined sp-search__icon">search</span>
 </div>
-<div class="search-overlay" id="search_overlay">
-  <div class="search-overlay__container">
-    <button
-      class="material-symbols-outlined search-overlay__close"
-      id="closeSearch">close</button
-    >
-    <div class="search search-overlay__search"></div>
-  </div>
+<div class="search-overlay" id="search_overlay"></div>
+<div class="search-container" id="search__container">
+  <button
+    class="material-symbols-outlined search-container__close"
+    id="closeSearch">close</button
+  >
+  <div class="search search-container__search"></div>
 </div>
 
 <style lang="scss">
@@ -76,22 +75,29 @@ import "@pagefind/default-ui/css/ui.css";
       opacity: 1;
       visibility: visible;
     }
-    &__container {
-      max-width: 500px;
-      background-color: #fff;
-      min-height: 20em;
-      position: relative;
-      padding: 3em 1.6em 1.6em 1.6em;
-      border-radius: 10px;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      overflow: auto;
-      @include v.mq(w428) {
-        max-width: 320px;
-      }
+  }
+  .search-container {
+    max-width: 500px;
+    width: 100%;
+    background-color: #fff;
+    min-height: 20em;
+    position: absolute;
+    padding: 3em 1.6em 1.6em 1.6em;
+    border-radius: 10px;
+    top: 350%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    &--active {
+      opacity: 1;
+      visibility: visible;
+    }
+    @include v.mq(w428) {
+      max-width: 320px;
     }
     &__close {
       position: absolute;
@@ -163,20 +169,24 @@ import "@pagefind/default-ui/css/ui.css";
   });
   const search = document.getElementById("search");
   const spSearch = document.getElementById("sp_search");
+  const searchContainer = document.getElementById("search__container");
   const closeSearchBtn = document.getElementById("closeSearch");
   const searchOverlay = document.getElementById("search_overlay");
 
   search?.addEventListener("click", () => {
     searchOverlay?.classList.add("search-overlay--active");
+    searchContainer?.classList.add("search-container--active");
   });
+
   spSearch?.addEventListener("click", () => {
     searchOverlay?.classList.add("search-overlay--active");
   });
   closeSearchBtn?.addEventListener("click", () => {
     searchOverlay?.classList.remove("search-overlay--active");
+    searchContainer?.classList.remove("search-container--active");
   });
   searchOverlay?.addEventListener("click", () => {
-    console.log("helo");
     searchOverlay?.classList.remove("search-overlay--active");
+    searchContainer?.classList.remove("search-container--active");
   });
 </script>
