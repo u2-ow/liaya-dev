@@ -24,7 +24,9 @@ const posts = blogs.contents;
                 alt="記事のサムネイル"
                 class="article-posts__thm"
               />
-              <p class="article-posts__title">{post.title}</p>
+              <p class="article-posts__title" data-pagefind-index-attrs>
+                {post.title}
+              </p>
               <p class="article-posts__published">
                 {dayjs(post.publishedAt).format("YYYY/MM/DD")}
               </p>
