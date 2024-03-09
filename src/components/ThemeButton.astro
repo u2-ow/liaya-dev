@@ -53,7 +53,7 @@
     }
   }
 </style>
-<script>
+<script is:inline>
   const osDark = matchMedia("(prefers-color-scheme: dark)");
   const osDarkState = osDark.matches;
   const inputButton = document.getElementById("themeButton");
@@ -61,15 +61,20 @@
   const dark = document.getElementById("darkMode");
 
   if (osDarkState) {
-    light?.classList.remove("modeButton__icon--active");
-    dark?.classList.add("modeButton__icon--active");
-    inputButton?.setAttribute("data-state", "false");
-    window.localStorage.setItem("mode", "dark");
-  } else {
-    light?.classList.add("modeButton__icon--active");
-    dark?.classList.remove("modeButton__icon--active");
-    inputButton?.setAttribute("data-state", "true");
-    window.localStorage.setItem("mode", "light");
+    switch (osDarkState) {
+      case true:
+        light?.classList.remove("modeButton__icon--active");
+        dark?.classList.add("modeButton__icon--active");
+        inputButton?.setAttribute("data-state", "false");
+        window.localStorage.setItem("mode", "dark");
+        break;
+      case false:
+        light?.classList.add("modeButton__icon--active");
+        dark?.classList.remove("modeButton__icon--active");
+        inputButton?.setAttribute("data-state", "true");
+        window.localStorage.setItem("mode", "light");
+        break;
+    }
   }
   if (localStorage.getItem("mode") === "dark") {
     document.documentElement.classList.add("dark-mode");
