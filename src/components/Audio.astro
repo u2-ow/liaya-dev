@@ -7,7 +7,7 @@
   id="play"
   role="button"
   aria-label="音声を再生する"
-  aria-pressed="false">▷</button
+  aria-pressed="mixed">▷</button
 >
 
 <style lang="scss">
@@ -45,5 +45,12 @@
   });
   playBtn?.addEventListener("click", () => {
     sound.play();
+    playBtn.setAttribute("aria-pressed", "true");
+    sound.on("play", () => {
+      playBtn.setAttribute("aria-pressed", "true");
+    });
+    sound.on("end", function () {
+      playBtn.setAttribute("aria-pressed", "false");
+    });
   });
 </script>
