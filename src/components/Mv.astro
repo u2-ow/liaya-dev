@@ -102,30 +102,31 @@ import Audio from "./Audio.astro";
       transition: 0.5s all;
       position: relative;
       &:hover {
-        background-color: #fff;
+        background-color: v.$light-mode-bg;
       }
     }
     &__link-arrow {
       font-size: 1.3rem;
       position: absolute;
       right: 10%;
-      top: 33%;
+      top: 38%;
       animation: arrowmove 1.5s ease-in-out infinite;
     }
   }
   :root[class="dark-mode"] {
     .mv-inner {
+      color: v.$dark-mode-text;
       &__title {
-        color: #fff;
+        color: v.$dark-mode-text;
       }
       &__text {
         font-size: 1.6rem;
-        color: #fff;
+        color: v.$dark-mode-text;
       }
       &__link {
-        color: #fff;
-        background: #0f0f11;
-        border: solid 2px #27272a;
+        background-color: v.$dark-mode-bg;
+        border: solid 2px v.$dark-mode-border;
+        color: v.$dark-mode-text;
       }
     }
   }
