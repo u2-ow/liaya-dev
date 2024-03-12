@@ -7,7 +7,14 @@
   id="play"
   role="button"
   aria-label="音声を再生する"
-  aria-pressed="mixed">▷</button
+  aria-pressed="mixed"
+>
+  <img
+    src="/assets/play.svg"
+    alt="audioのアイコン"
+    width="30"
+    height="30"
+  /></button
 >
 
 <style lang="scss">
@@ -17,24 +24,24 @@
     border-radius: 3px;
     border: solid 1px #e4e4e7;
     border-radius: 3px;
-    padding: 0.2em;
+    padding: 0.3em;
     font-size: 2rem;
     vertical-align: bottom;
     margin-right: 1.6rem;
-    margin-top: 1em;
     transition: 0.5s all;
+    line-height: 0;
     @include v.mq(w683) {
       padding: 0.15em 0.5em;
     }
     &:hover {
-      background-color: #fff;
+      background-color: v.$light-mode-bg;
     }
   }
   :root[class="dark-mode"] {
     .audio {
-      color: #fff;
-      background: #0f0f11;
-      border: solid 2px #27272a;
+      color: v.$dark-mode-text;
+      background-color: v.$dark-mode-bg;
+      border: solid 2px v.$dark-mode-border;
     }
   }
 </style>
