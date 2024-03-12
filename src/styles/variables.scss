@@ -1,6 +1,10 @@
 /* color */
-
-
+$light-mode-bg:#fff;
+$dark-mode-text:#fff;
+$dark-mode-bg:#242424;
+$dark-mode-border: #434347;
+$modal-dark-bg:#241f1f;
+$light-mode-text:#5a564d;
 $darkGray:#a9a9a9;
 $black:#5a564d;
 
@@ -169,10 +173,9 @@ $breakpoint: (
 :root[class="dark-mode"]{
     .article-posts{
         &__item{
-            color: #000;
-            border: solid 3px #27272a;
+            border: solid 3px $dark-mode-border;
             border-radius: 1em;
-            color: #fff;
+            color: $dark-mode-text;
         }  
     }
 }
