@@ -8,6 +8,7 @@ import { Pagination } from "../../../components/Pagination";
 import { getBlogs } from "../../../lib/microcms";
 import type { GetStaticPathsOptions } from "astro";
 import dayjs from "dayjs";
+import SectionTitle from "../../../components/SectionTitle.astro";
 
 export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
   const blogs = await getBlogs();
@@ -19,7 +20,9 @@ const { page } = Astro.props;
 
 <Layout title="Welcome to Astro.">
   <Header />
+
   <main class="blogs" data-pagefind-ignore="all">
+    <SectionTitle title="Articles" className="pageTitle" />
     <div class="article-posts">
       <ul class="article-posts__list" id="post_list">
         {
@@ -32,7 +35,7 @@ const { page } = Astro.props;
                     alt="記事のサムネイル"
                     class="article-posts__thm"
                   />
-                  <p class="article-posts__title">{post.title}</p>
+                  <h2 class="article-posts__title">{post.title}</h2>
                   <p class="article-posts__published">
                     {dayjs(post.publishedAt).format("YYYY/MM/DD")}
                   </p>
