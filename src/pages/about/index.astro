@@ -23,6 +23,9 @@ import Layout from "../../layouts/Layout.astro";
       "Vercle"によって作成されています。<br
       />週に1記事の投稿を目安にフロントエンド系の記事を投稿していきます。
     </p>
+    <p class="about__text">
+      主に個人的な知識のアウトプットのために運営をするものであり、個人の意見を反映しておりますので記事の修正、指摘等ございましたらX(旧Twitter)のDMにお手数ですがご連絡いただけますと幸甚です。
+    </p>
     <h2 class="about__h2">経歴</h2>
     <ul class="about__career">
       <li class="about__career-item">
@@ -38,16 +41,6 @@ import Layout from "../../layouts/Layout.astro";
         未定
       </li>
     </ul>
-    <h2 class="about__h2">趣味</h2>
-    <p class="about__text">
-      ゲームとアニメと散歩です。<br
-      />ゲームは、最近ではVALORANTやPhasmophobiaを友人とプレイしています。<br
-      />アニメは、「葬送のフリーレン」にハマっています。<small
-        >(2024年3月現在)</small
-      >
-      <br
-      />散歩は、フルリモートワークということもあり、運動を全くしないので休日は公園や1駅分歩いたりしています。
-    </p>
   </main>
   <Footer />
 </Layout>
@@ -104,8 +97,8 @@ import Layout from "../../layouts/Layout.astro";
       background-color: #fafafa;
       border-radius: 3px;
       border: solid 1px #e4e4e7;
-      padding: 0.4em 1em;
-      font-size: 1.6rem;
+      padding: 0.2em 1em;
+      font-size: 1.4rem;
       width: fit-content;
       vertical-align: baseline;
       transition: 0.5s all;
@@ -122,7 +115,7 @@ import Layout from "../../layouts/Layout.astro";
     }
     &__text {
       font-size: 1.6rem;
-      line-height: 1.6;
+      margin-bottom: 1.6em;
     }
     &__career-item {
       font-size: 1.6rem;
@@ -180,6 +173,22 @@ import Layout from "../../layouts/Layout.astro";
     }
     100% {
       transform: rotate(360deg);
+    }
+  }
+  :root[class="dark-mode"] {
+    .about {
+      &__view-json {
+        color: v.$black;
+        background-color: v.$dark-mode-bg;
+        color: v.$dark-mode-text;
+        border-radius: 3px;
+        border: solid 1px v.$dark-mode-border;
+        padding: 0.2em 1em;
+        &:hover {
+          background-color: v.$light-mode-bg;
+          color: v.$light-mode-text;
+        }
+      }
     }
   }
 </style>
