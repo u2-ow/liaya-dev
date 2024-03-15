@@ -29,7 +29,7 @@ const { page } = Astro.props;
           page.data.map((post) => {
             return (
               <li class="article-posts__item">
-                <a href={"/blogs/" + `${post.id}`}>
+                <a href={"/articles/" + `${post.id}`}>
                   <img
                     src={post.eyecatch.url}
                     alt="記事のサムネイル"
