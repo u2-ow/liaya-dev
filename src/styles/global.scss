@@ -78,6 +78,9 @@ html{
       text-align: center;
       font-size: 2.5rem;
       word-break: auto-phrase;
+      @include v.mq(w428){
+        font-size: 2rem;
+      }
     }
     .post-container__publishedAt{
       text-align: center;
