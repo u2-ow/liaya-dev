@@ -29,7 +29,7 @@ const { page } = Astro.props;
           page.data.map((post) => {
             return (
               <li class="article-posts__item">
-                <a href={"/" + `${post.id}`}>
+                <a href={"/blogs/" + `${post.id}`}>
                   <img
                     src={post.eyecatch.url}
                     alt="記事のサムネイル"
@@ -68,4 +68,3 @@ const { page } = Astro.props;
     postList.classList.add("article-posts__list--second");
   }
 </script>
-../../../components/ui/Pagination
