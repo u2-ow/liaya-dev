@@ -1,0 +1,11 @@
+.breadcrumb{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    .breadcrumbItem{
+        font-size: 1.2rem;
+    }
+    .breadcrumbIcon{
+        vertical-align: text-bottom;
+    }
+}
