@@ -27,8 +27,8 @@
 :root[class="dark-mode"]{
     .pagination{
         .paginationItem{
-            line-height: 29px;
-            border: solid 3px #27272a;
+            line-height: 34px;
+            border: solid 1px v.$dark-mode-border;
         }
     } 
 }

@@ -1,6 +1,6 @@
 ---
-import Search from "./Search.astro";
-import ThemeButton from "./ThemeButton.astro";
+import Search from "./ui/Search.astro";
+import ThemeButton from "./ui/ThemeButton.astro";
 ---
 
 <header class="header">
@@ -41,11 +41,8 @@ import ThemeButton from "./ThemeButton.astro";
     justify-content: space-between;
     align-items: center;
     &__h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 300;
-      @include v.mq(w428) {
-        font-size: 2.8rem;
-      }
     }
     &__nav {
       display: flex;
