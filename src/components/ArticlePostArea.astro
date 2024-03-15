@@ -2,7 +2,7 @@
 import dayjs from "dayjs";
 import { getBlogs } from "../lib/microcms";
 import SectionTitle from "./SectionTitle.astro";
-import ViewMore from "./ViewMore.astro";
+import ViewMore from "./ui/ViewMore.astro";
 
 const blogs = await getBlogs({
   fields: ["title", "id", "content", "eyecatch", "description", "publishedAt"],
@@ -18,7 +18,7 @@ const posts = blogs.contents;
       posts.map((post) => {
         return (
           <li class="article-posts__item">
-            <a href={"/blogs/" + `${post.id}`}>
+            <a href={"/articles/" + `${post.id}`}>
               <img
                 src={post.eyecatch.url}
                 alt="記事のサムネイル"
