@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import Styles from "../styles/Pagination.module.scss"
+import Styles from "../../styles/Pagination.module.scss"
 
 
 
@@ -26,9 +26,6 @@ export const Pagination =({data}:any)=>{
                     })
                 }
             </ul>
-
-
-
         </>
     )
 }
