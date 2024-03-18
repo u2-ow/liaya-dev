@@ -1,0 +1,62 @@
+---
+import type { number } from "astro/zod";
+
+const { list, path } = Astro.props;
+console.log(list);
+---
+
+<nav class="breadcrumb">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__item">
+      <a href="/" class="breadcrumb_link">top</a>
+    </li>
+    {
+      list.map((item: string, index: number) => {
+        const path = index === 0 ? "/articles/page/1" : "/";
+        return (
+          <li class="breadcrumb__item">
+            <a href={path} class="breadcrumb_link">
+              {item}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ol>
+
+  <style lang="scss">
+    @use "../../styles/variables.scss" as v;
+    .breadcrumb {
+      margin-bottom: 3em;
+      &__item {
+        position: relative;
+        font-size: 1.4rem;
+        display: inline-block;
+        @include v.mq(w428) {
+          font-size: 1.2rem;
+        }
+        &:nth-child(2) {
+          margin: 0 2em;
+          &::before {
+            content: "<";
+            position: absolute;
+            left: -1.6em;
+          }
+        }
+        &:nth-child(3) {
+          &::before {
+            content: "<";
+            position: absolute;
+            left: -1.3em;
+          }
+        }
+        &:last-child {
+          @include v.mq(w428) {
+            display: block;
+            margin-left: 1.3em;
+          }
+        }
+      }
+    }
+  </style>
+</nav>
