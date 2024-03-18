@@ -4,7 +4,7 @@ import "../../styles/variables.scss";
 import Layout from "../../layouts/Layout.astro";
 import dayjs from "dayjs";
 import Header from "../../components/Header.astro";
-import { Breadcrumb } from "../../components/ui/Breadcrumb";
+import Breadcrumb from "../../components/ui/Breadcrumb.astro";
 import Footer from "../../components/Footer.astro";
 
 import { getBlogDetail, getBlogs } from "../../lib/microcms";
@@ -22,6 +22,8 @@ export async function getStaticPaths() {
 const { blogId } = Astro.params;
 const { blogTitle } = Astro.props;
 const blog = await getBlogDetail(blogId as string);
+const path = Astro.url.pathname;
+const currentPath = "articles";
 ---
 
 <Layout title=`${blog.title} + | u2.dev`>
@@ -31,7 +33,7 @@ const blog = await getBlogDetail(blogId as string);
     <p class="post-container__publishedAt">
       公開日時：{dayjs(blog.publishedAt).format("YYYY/MM/DD")}
     </p>
-    <Breadcrumb title={blogTitle} />
+    <Breadcrumb list={[currentPath, blogTitle]} path={path} />
     <div class="post" set:html={blog.content[0].html} />
   </main>
 
