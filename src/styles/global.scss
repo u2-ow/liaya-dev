@@ -1,12 +1,18 @@
 @use "../styles/variables.scss" as v;
 
-
+@font-face {
+  font-family: MPLUSRounded1;
+  font-display: swap;
+  src: url("../../public/assets/fonts/MPLUSRounded1c-Light.ttf") format("TrueType");
+  }
   @media (prefers-color-scheme:dark) {
     body {
       background-color:v.$dark-mode-bg;
       color: v.$dark-mode-text;
+      
     }
   }
+
   :root[class="dark-mode"]{
     background-color:v.$dark-mode-bg;
     color: v.$dark-mode-text;
@@ -44,15 +50,15 @@
 
 html{
     font-size: 62.5%;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
     color: v.$black;
-    font-weight: 300;
     transition: 0.5s all;
     line-height: 1.8;
     @include v.mq(w428){
       line-height: 1.6;
     }
-
+    body{
+      font-family: "MPLUSRounded1", sans-serif;
+    }
     .body-lock{
       position: fixed;
       left: 0;
