@@ -35,17 +35,7 @@ import Audio from "./ui/Audio.astro";
 
 <style lang="scss">
   @use "../styles/variables.scss" as v;
-  @keyframes arrowmove {
-    0% {
-      right: 6%;
-    }
-    50% {
-      right: 4%;
-    }
-    100% {
-      right: 6%;
-    }
-  }
+
   .mv {
     padding-top: 7em;
   }
@@ -111,14 +101,18 @@ import Audio from "./ui/Audio.astro";
       position: relative;
       &:hover {
         background-color: v.$light-mode-bg;
+        .mv-inner__link-arrow {
+          right: 3%;
+        }
       }
     }
     &__link-arrow {
       font-size: 1.3rem;
       position: absolute;
+      transition: all 0.5s;
+      right: 6%;
       top: 10%;
       display: block;
-      animation: arrowmove 1.5s ease-in-out infinite;
     }
   }
   :root[class="dark-mode"] {
@@ -138,3 +132,5 @@ import Audio from "./ui/Audio.astro";
     }
   }
 </style>
+
+<script></script>
