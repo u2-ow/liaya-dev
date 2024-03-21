@@ -54,8 +54,8 @@ import Audio from "./ui/Audio.astro";
     }
     &__title {
       font-size: 6rem;
-      justify-content: space-between;
       width: fit-content;
+      min-height: 48px;
       margin-bottom: 0.25em;
       color: v.$black;
       @include v.mq(w1024) {
@@ -83,6 +83,7 @@ import Audio from "./ui/Audio.astro";
     &__text {
       font-size: 1.8rem;
       color: v.$black;
+      min-height: 44px;
       @include v.mq(w428) {
         font-size: 1.6rem;
         line-height: 1.4;
@@ -128,7 +129,7 @@ import Audio from "./ui/Audio.astro";
         background-color: v.$dark-mode-bg;
         border: solid 1px v.$dark-mode-border;
         color: v.$dark-mode-text;
-        padding: 0 2em 0 0.8em;
+        padding: 0.1em 2em 0.1em 0.8em;
       }
       &__link-arrow {
         fill: #fff;
