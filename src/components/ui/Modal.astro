@@ -1,8 +1,17 @@
 <div class="modal-wrap" id="modal_wrap">
   <div class="modal">
     <p class="modal__title">Profile</p>
-    <button class="material-symbols-outlined modal__icon" id="closeJson"
-      >close</button
+    <button class="material-symbols-outlined modal__close" id="closeJson"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 -960 960 960"
+        width="24"
+        class="modal__close-icon"
+        ><path
+          d="M256-227.692 227.692-256l224-224-224-224L256-732.308l224 224 224-224L732.308-704l-224 224 224 224L704-227.692l-224-224-224 224Z"
+        ></path></svg
+      ></button
     >
     <div class="modal__inner">
       <p><span>&#123</span></p>
@@ -100,11 +109,12 @@
       font-size: 1.4rem;
       padding: 1.6rem;
     }
-    &__icon {
+    &__close {
       position: absolute;
       top: 10px;
       right: 10px;
     }
+
     &__text {
       margin-left: 1em;
       padding: 2px 0;
@@ -128,8 +138,8 @@
       &__text {
         color: #fff;
       }
-      &__icon {
-        color: #fff;
+      &__close-icon {
+        fill: #fff;
       }
     }
   }

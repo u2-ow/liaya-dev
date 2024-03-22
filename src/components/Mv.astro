@@ -100,6 +100,10 @@ import Audio from "./ui/Audio.astro";
       margin-top: 1em;
       transition: 0.5s all;
       position: relative;
+      @include v.mq(w428) {
+        line-height: 27px;
+        height: 30px;
+      }
       &:hover {
         background-color: v.$light-mode-bg;
         .mv-inner__link-arrow {
@@ -129,7 +133,7 @@ import Audio from "./ui/Audio.astro";
         background-color: v.$dark-mode-bg;
         border: solid 1px v.$dark-mode-border;
         color: v.$dark-mode-text;
-        padding: 0.1em 2em 0.1em 0.8em;
+        padding: 0em 2em 0em 0.8em;
       }
       &__link-arrow {
         fill: #fff;
