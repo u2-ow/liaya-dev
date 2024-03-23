@@ -7,7 +7,7 @@ import Modal from "../../components/ui/Modal.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout title="このサイトについて|u2.dev">
+<Layout title="このサイトについて|liaya.dev">
   <Header />
 
   <main class="about" data-pagefind-ignore="all">
@@ -94,10 +94,9 @@ import Layout from "../../layouts/Layout.astro";
 
     &__view-json {
       color: v.$black;
-      background-color: #fafafa;
       border-radius: 3px;
       border: solid 1px #e4e4e7;
-      padding: 0.2em 1em;
+      padding: 0em 1em;
       font-size: 1.4rem;
       width: fit-content;
       vertical-align: baseline;
@@ -127,10 +126,6 @@ import Layout from "../../layouts/Layout.astro";
       }
       &:nth-child(4) {
         margin: 1.6em 0;
-      }
-      &:not(:last-child) .about__career-year {
-        background-color: #292590;
-        color: #fff;
       }
       @include v.mq(w428) {
         font-size: 1.4rem;
