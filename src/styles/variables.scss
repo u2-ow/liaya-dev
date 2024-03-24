@@ -119,7 +119,7 @@ $breakpoint: (
 // 記事一覧用
 @mixin article-list{
   margin: 0 auto;
-  padding: 0 1.6em;
+  // padding: 0 1.6em;
   margin-bottom: 10em;
     &__list{
         display: grid;

@@ -67,6 +67,7 @@ html{
     main{
       @include v.common-width();
       margin: 0 auto;
+      padding: 0 1.6em;
     }
     .paginationActive{
       color: #4861c6;
