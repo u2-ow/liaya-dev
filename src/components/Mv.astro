@@ -1,6 +1,6 @@
 ---
 import Cube from "./Cube.astro";
-import Audio from "./ui/Audio.astro";
+// import Audio from "./ui/Audio.astro";
 ---
 
 <div class="mv">
@@ -14,7 +14,7 @@ import Audio from "./ui/Audio.astro";
           class="w1024-block w683-none"
         />自分の興味のある内容を投稿します。
       </p>
-      <Audio />
+      <!-- <Audio /> -->
       <a href="/about" class="mv-inner__link"
         >about me
         <svg
@@ -40,7 +40,7 @@ import Audio from "./ui/Audio.astro";
     padding-top: 7em;
   }
   .mv-inner {
-    padding: 15em 1.6em;
+    padding: 15em 0;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -50,7 +50,7 @@ import Audio from "./ui/Audio.astro";
     }
     @include v.mq(w683) {
       flex-direction: column-reverse;
-      padding: 10em 1.6em;
+      padding: 10em 0;
     }
     &__title {
       font-size: 6rem;
