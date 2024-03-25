@@ -59,8 +59,9 @@
   const inputButton = document.getElementById("themeButton");
   const light = document.getElementById("lightMode");
   const dark = document.getElementById("darkMode");
-  const cat = window.localStorage.setItem("food", "beef");
-  console.log(cat);
+  window.localStorage.setItem("food", "beef");
+  var value1 = localStorage.getItem("food");
+  console.log(value1);
   if (osDarkState) {
     switch (osDarkState) {
       case osDark.matches === true:
