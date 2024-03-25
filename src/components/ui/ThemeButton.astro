@@ -59,14 +59,8 @@
   const light = document.getElementById("lightMode");
   const dark = document.getElementById("darkMode");
   if (osDark) {
-    console.log("hello");
-    console.log(osDark);
-    console.log(osDark.matches);
-  }
-  if (osDark) {
     switch (osDark.matches) {
       case true:
-        console.log("くろ！");
         light?.classList.remove("modeButton__icon--active");
         dark?.classList.add("modeButton__icon--active");
         inputButton?.setAttribute("data-state", "false");
@@ -74,7 +68,6 @@
         console.log(value1);
         break;
       case false:
-        console.log("しろ！");
         light?.classList.add("modeButton__icon--active");
         dark?.classList.remove("modeButton__icon--active");
         inputButton?.setAttribute("data-state", "true");
