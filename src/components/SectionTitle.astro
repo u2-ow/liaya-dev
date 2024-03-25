@@ -12,6 +12,9 @@ const { title, className } = Astro.props;
     color: v.$black;
     margin-bottom: 1em;
     width: fit-content;
+    @include v.mq(w428) {
+      font-size: 1.8rem;
+    }
   }
   .pageTitle {
     text-align: center;

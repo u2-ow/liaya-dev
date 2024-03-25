@@ -112,10 +112,16 @@ import Layout from "../../layouts/Layout.astro";
       font-size: 2.3rem;
       margin-bottom: 1em;
       margin-top: 3em;
+      @include v.mq(w428) {
+        font-size: 1.8rem;
+      }
     }
     &__text {
       font-size: 1.6rem;
       margin-bottom: 1.6em;
+      @include v.mq(w428) {
+        font-size: 1.4rem;
+      }
     }
     &__career-item {
       font-size: 1.6rem;
