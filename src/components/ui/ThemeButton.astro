@@ -55,13 +55,15 @@
 </style>
 <script is:inline>
   const osDark = matchMedia("(prefers-color-scheme: dark)");
-  const osDarkState = osDark.matches;
-  console.log(osDarkState);
   const inputButton = document.getElementById("themeButton");
   const light = document.getElementById("lightMode");
   const dark = document.getElementById("darkMode");
-  if (osDarkState) {
-    switch (osDarkState) {
+  console.log("あああ");
+  if (osDark) {
+    console.log("hello");
+  }
+  if (osDark) {
+    switch (osDark) {
       case osDark.matches === true:
         light?.classList.remove("modeButton__icon--active");
         dark?.classList.add("modeButton__icon--active");
