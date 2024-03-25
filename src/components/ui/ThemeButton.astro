@@ -59,7 +59,6 @@
   const inputButton = document.getElementById("themeButton");
   const light = document.getElementById("lightMode");
   const dark = document.getElementById("darkMode");
-  console.log();
   if (osDarkState) {
     switch (osDarkState) {
       case osDark.matches === true:
@@ -87,6 +86,8 @@
     dark?.classList.remove("modeButton__icon--active");
     light?.classList.add("modeButton__icon--active");
   }
+  const cat = localStorage.getItem("mode");
+  console.log(cat);
   inputButton?.addEventListener("click", () => {
     const inputButtonState = inputButton.getAttribute("data-state");
     if (inputButtonState) {
