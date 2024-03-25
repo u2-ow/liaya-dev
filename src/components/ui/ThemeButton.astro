@@ -59,16 +59,14 @@
   const inputButton = document.getElementById("themeButton");
   const light = document.getElementById("lightMode");
   const dark = document.getElementById("darkMode");
-  window.localStorage.setItem("food", "beef");
-  var value1 = localStorage.getItem("food");
-  console.log(value1);
   if (osDarkState) {
     switch (osDarkState) {
       case osDark.matches === true:
         light?.classList.remove("modeButton__icon--active");
         dark?.classList.add("modeButton__icon--active");
         inputButton?.setAttribute("data-state", "false");
-        window.localStorage.setItem("mode", "dark");
+        const value1 = window.localStorage.setItem("mode", "dark");
+        console.log(value1);
         break;
       case osDark.matches === false:
         light?.classList.add("modeButton__icon--active");
