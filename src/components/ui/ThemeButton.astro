@@ -59,10 +59,10 @@
   const inputButton = document.getElementById("themeButton");
   const light = document.getElementById("lightMode");
   const dark = document.getElementById("darkMode");
-  console.log(osDark);
   if (osDarkState) {
     switch (osDarkState) {
       case osDark.matches === true:
+        console.log("クライ");
         light?.classList.remove("modeButton__icon--active");
         dark?.classList.add("modeButton__icon--active");
         inputButton?.setAttribute("data-state", "false");
@@ -70,6 +70,7 @@
         console.log(value1);
         break;
       case osDark.matches === false:
+        console.log("明るい！");
         light?.classList.add("modeButton__icon--active");
         dark?.classList.remove("modeButton__icon--active");
         inputButton?.setAttribute("data-state", "true");
